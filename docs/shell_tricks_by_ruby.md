@@ -65,4 +65,8 @@ lambda 式
 # 外部スクリプトにする
 
 
+# 参考
+
+- [Rubyの特殊変数一覧](https://gist.github.com/kwatch/2814940)
+- [Rubyワンライナー入門](http://maeharin.hatenablog.com/entry/20130113/ruby_oneliner)
 
