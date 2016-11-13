@@ -11,12 +11,6 @@ Rubyを使ってシェル芸やってみよう
 ## ruby の起動オプション
 
 ```
--F pattern     Specifies input field separator ($;).
-
--a             Turns on auto-split mode when used with -n or -p.  In auto-split mode, Ruby executes
-                     $F = $_.split
-               at beginning of each loop.
-
 -e command     Specifies script from command-line while telling Ruby not to search the rest of the arguments for a script file name.
 
 -n             Causes Ruby to assume the following loop around your script, which makes it iterate over file name arguments somewhat like sed -n or awk.
@@ -30,18 +24,26 @@ Rubyを使ってシェル芸やってみよう
                      % echo matz | ruby -p -e '$_.tr! "a-z", "A-Z"'
                      MATZ
 
+-a             Turns on auto-split mode when used with -n or -p.  In auto-split mode, Ruby executes
+                     $F = $_.split
+               at beginning of each loop.
+
+-F pattern     Specifies input field separator ($;).
+
 -r library     Causes Ruby to load the library using require.  It is useful when using -n or -p.
 ```
-
-- `-F` splitの区切り文字(`$;`)を指定。
-
-- `-a` 自動で入力をsplitする。`-n`や`-p`と使うと`$F = $_.split` をループの戦闘で実行する。
 
 - `-e` **command** コマンドラインからrubyコードを与える。必須。
 
 - `-n` ループの内側として実行される。`sed -n` や `awk` のように振る舞う。
 
 - `-p` `-n`オプションと同じように動作し、`$_` を出力します。
+
+- `-a` 自動で入力をsplitして$Fにセットする。`-n`や`-p`と使うときのみ有効で`$F = $_.split` をループの戦闘で実行する。
+
+- `-F` splitの区切り文字(`$;`)を指定。
+
+- `-r` **library** プログラムを実行する前に指定されたライブラリをロードする。
 
 
 ## 特殊変数
