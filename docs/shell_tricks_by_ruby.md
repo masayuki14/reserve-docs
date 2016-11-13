@@ -31,9 +31,12 @@ Rubyを使ってシェル芸やってみよう
 -F pattern     Specifies input field separator ($;).
 
 -r library     Causes Ruby to load the library using require.  It is useful when using -n or -p.
+
+-l             (The lowercase letter ``ell''.)  Enables automatic line-ending processing, which means to firstly set $\ to the value of $/, and
+               secondly chops every line read using chop!.
+
 ```
 
-- `-e` **command** コマンドラインからrubyコードを与える。必須。
 
 - `-n` ループの内側として実行される。`sed -n` や `awk` のように振る舞う。
 
@@ -44,6 +47,32 @@ Rubyを使ってシェル芸やってみよう
 - `-F` splitの区切り文字(`$;`)を指定。
 
 - `-r` **library** プログラムを実行する前に指定されたライブラリをロードする。
+
+
+
+### `-e`
+
+`-e command` コマンドラインからrubyコードを与えます。
+他のオプションを使う場合は最後に指定します。正規表現ショートカットが利用できます。
+
+```ruby
+$ ruby -e "puts 'Hello, World.'"
+```
+
+### `-n`
+
+次の繰り返しに囲まれているのと同じようにプログラムを実行する。
+
+```ruby
+while gets            # 入力から1行を$_に読み込む
+  $F = split if $-a   # -aが指定されていれば$_をフィールドに分割
+  chop! if $-l        # -lが指定されていれば$_の行末を取り除く
+
+  # ここにプログラムを挿入!!!
+
+  print if $-p
+end
+```
 
 
 ## 特殊変数
