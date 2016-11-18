@@ -103,10 +103,28 @@ $ cat ip_list.txt | ruby -ne 'gsub(/[12]/, "X"); print'
 `-n`オプションと同じように動作し、`$_` を出力します。
 `$_` を暗黙的に扱う関数を使う場合に便利です。
 
-```ruby
+```sh
 $ cat ip_list.txt | ruby -pe ''
 $ cat ip_list.txt | ruby -pe 'chop'
+$ cat ip_list.txt | ruby -pe 'sub(".", "-")'
 $ cat ip_list.txt | ruby -pe 'gusb(/[12]/, "X")'
+```
+
+
+### `-a`
+
+自動で`$_`をsplitして`$F`にセットします。`-n`や`-p`と使うときのみ有効で`$F = $_.split` をループの戦闘で実行します。
+
+```
+$ ls -l | ruby -ane 'p $F'
+["total", "64"]
+["drwxr-xr-x", "21", "morisaki", "staff", "714", "11", "9", "12:18", "Applications"]
+...
+
+$ ls -l | ruby -ane 'p $F[0]'
+"total"
+"drwxr-xr-x"
+...
 ```
 
 ## 特殊変数
