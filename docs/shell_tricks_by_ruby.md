@@ -8,7 +8,7 @@ Rubyを使ってシェル芸やってみよう
 - シェルでテキスト処理をする場合にうまくRuby使えないか
 
 
-## ruby の起動オプション
+## ruby の文字列処理オプション
 
 ```
 -e command     Specifies script from command-line while telling Ruby not to search the rest of the arguments for a script file name.
@@ -37,36 +37,29 @@ Rubyを使ってシェル芸やってみよう
 
 ```
 
-
-- `-n` ループの内側として実行される。`sed -n` や `awk` のように振る舞う。
-
-- `-p` `-n`オプションと同じように動作し、`$_` を出力します。
-
-- `-a` 自動で入力をsplitして$Fにセットする。`-n`や`-p`と使うときのみ有効で`$F = $_.split` をループの戦闘で実行する。
-
 - `-F` splitの区切り文字(`$;`)を指定。
 
 - `-r` **library** プログラムを実行する前に指定されたライブラリをロードする。
 
 
 
-### `-e`
+### **-e**
 
 `-e command` コマンドラインからrubyコードを与えます。
 他のオプションを使う場合は最後に指定します。正規表現ショートカットが利用できます。
 
-```ruby
+```sh
 $ ruby -e "puts 'Hello, World.'"
 ```
 
-### `-n`
+### **-n**
 
 次の繰り返しに囲まれているのと同じようにプログラムを実行する。
 
 ```ruby
 while gets            # 入力から1行を$_に読み込む
   $F = split if $-a   # -aが指定されていれば$_をフィールドに分割
-  chop if $-l        # -lが指定されていれば$_の行末を取り除く
+  chop if $-l         # -lが指定されていれば$_の行末を取り除く
 
   # ここにプログラムを挿入!!!
 
@@ -76,7 +69,7 @@ end
 
 `gets` 読み込まれた文字列は暗黙的に`$_` に保持される。
 
-```ruby
+```sh
 $ cat ip_list.txt
 118.151.171.74
 54.197.246.21
@@ -86,19 +79,19 @@ $ ruby -ne 'puts $_' ip_list.txt
 $ cat ip_list.txt | ruby -ne 'puts $_'
 ```
 
-#### 暗黙的な$_操作
+#### 暗黙的な `$_` 操作
 
 `print` `chop` `chomp` `sub` `gsub`
 これらのグローバル関数は暗黙的に `$_` を操作し、結果を `$_` に戻します。
 
-```ruby
+```sh
 $ cat ip_list.txt | ruby -ne 'print'
 $ cat ip_list.txt | ruby -ne 'chop; print'
 $ cat ip_list.txt | ruby -ne 'sub(".", "-"); print'
 $ cat ip_list.txt | ruby -ne 'gsub(/[12]/, "X"); print'
 ```
 
-### `-p`
+### **-p**
 
 `-n`オプションと同じように動作し、`$_` を出力します。
 `$_` を暗黙的に扱う関数を使う場合に便利です。
@@ -111,7 +104,7 @@ $ cat ip_list.txt | ruby -pe 'gusb(/[12]/, "X")'
 ```
 
 
-### `-a`
+### **-a**
 
 自動で`$_`をsplitして`$F`にセットします。`-n`や`-p`と使うときのみ有効で`$F = $_.split` をループの戦闘で実行します。
 
