@@ -52,6 +52,15 @@ Rubyを使ってシェル芸やってみよう
 $ ruby -e "puts 'Hello, World.'"
 ```
 
+複数の`-e`オプションが指定されている場合、1つ1つは別々のコード行として扱われます。
+
+```sh
+$ ruby -e 'a = "Hello"' -e 'b = "World"' -e 'puts [a,b].join(" ")'
+Hello World
+$ ruby -e 'a = "Hello"; b = "World"; puts [a,b].join(" ")'
+Hello World
+```
+
 ### **-n**
 
 次の繰り返しに囲まれているのと同じようにプログラムを実行する。
