@@ -66,7 +66,7 @@ $ ruby -e "puts 'Hello, World.'"
 ```ruby
 while gets            # 入力から1行を$_に読み込む
   $F = split if $-a   # -aが指定されていれば$_をフィールドに分割
-  chop! if $-l        # -lが指定されていれば$_の行末を取り除く
+  chop if $-l        # -lが指定されていれば$_の行末を取り除く
 
   # ここにプログラムを挿入!!!
 
@@ -86,16 +86,27 @@ $ ruby -ne 'puts $_' ip_list.txt
 $ cat ip_list.txt | ruby -ne 'puts $_'
 ```
 
-### 暗黙的な$_操作
+#### 暗黙的な$_操作
 
 `print` `chop` `chomp` `sub` `gsub`
 これらのグローバル関数は暗黙的に `$_` を操作し、結果を `$_` に戻します。
 
 ```ruby
 $ cat ip_list.txt | ruby -ne 'print'
-$ cat ip_list.txt | ruby -ne 'chomp; print'
+$ cat ip_list.txt | ruby -ne 'chop; print'
 $ cat ip_list.txt | ruby -ne 'sub(".", "-"); print'
 $ cat ip_list.txt | ruby -ne 'gsub(/[12]/, "X"); print'
+```
+
+### `-p`
+
+`-n`オプションと同じように動作し、`$_` を出力します。
+`$_` を暗黙的に扱う関数を使う場合に便利です。
+
+```ruby
+$ cat ip_list.txt | ruby -pe ''
+$ cat ip_list.txt | ruby -pe 'chop'
+$ cat ip_list.txt | ruby -pe 'gusb(/[12]/, "X")'
 ```
 
 ## 特殊変数
