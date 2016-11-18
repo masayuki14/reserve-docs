@@ -74,6 +74,29 @@ while gets            # 入力から1行を$_に読み込む
 end
 ```
 
+`gets` 読み込まれた文字列は暗黙的に`$_` に保持される。
+
+```ruby
+$ cat ip_list.txt
+118.151.171.74
+54.197.246.21
+192.30.252.153
+
+$ ruby -ne 'puts $_' ip_list.txt
+$ cat ip_list.txt | ruby -ne 'puts $_'
+```
+
+### 暗黙的な$_操作
+
+`print` `chop` `chomp` `sub` `gsub`
+これらのグローバル関数は暗黙的に `$_` を操作し、結果を `$_` に戻します。
+
+```ruby
+$ cat ip_list.txt | ruby -ne 'print'
+$ cat ip_list.txt | ruby -ne 'chomp; print'
+$ cat ip_list.txt | ruby -ne 'sub(".", "-"); print'
+$ cat ip_list.txt | ruby -ne 'gsub(/[12]/, "X"); print'
+```
 
 ## 特殊変数
 
@@ -100,4 +123,5 @@ lambda 式
 
 - [Rubyの特殊変数一覧](https://gist.github.com/kwatch/2814940)
 - [Rubyワンライナー入門](http://maeharin.hatenablog.com/entry/20130113/ruby_oneliner)
+- [プログラミング言語Ruby](http://amzn.to/2govaCN)
 
