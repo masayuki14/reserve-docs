@@ -16,11 +16,12 @@ files.txt  http://bit.ly/2iqCqdd
 
 ## Q2 Catch
 
-コメント行の除外はいらないんじゃないか。
+poolの項目にあるIPもしくはホスト名を抽出。コメント行は対象外。
 
 ```sh
 $ cat ntp.conf | awk '/^pool/ {print $2}'
 $ ruby -nae 'puts $F[1] if /^pool/' ntp.conf
 ```
 
+コメント行の除外はいらないんじゃないか。
 ntp.conf http://bit.ly/2iqG33c
