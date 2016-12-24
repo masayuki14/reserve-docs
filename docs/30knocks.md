@@ -25,3 +25,12 @@ $ ruby -nae 'puts $F[1] if /^pool/' ntp.conf
 
 コメント行の除外はいらないんじゃないか。
 ntp.conf http://bit.ly/2iqG33c
+
+
+## Q3 Through
+
+```sh
+$ cat du.s | sort -nr | awk '{print $2}' | xargs du -sh
+```
+
+`xargs` を使ってやり直すのか。なるほど。
