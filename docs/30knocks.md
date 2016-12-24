@@ -11,4 +11,16 @@ $ cat files.txt | ruby -ne 'print if /\.exe$/'
 ```
 
 `\.exe$` を使うのがポイント
-files.txt https://github.com/ryuichiueda/ShellGeiData/blob/master/sd201703/files.txt http://bit.ly/2iqCqdd
+files.txt  http://bit.ly/2iqCqdd
+
+
+## Q2 Catch
+
+コメント行の除外はいらないんじゃないか。
+
+```sh
+$ cat ntp.conf | awk '/^pool/ {print $2}'
+$ ruby -nae 'puts $F[1] if /^pool/' ntp.conf
+```
+
+ntp.conf http://bit.ly/2iqG33c
