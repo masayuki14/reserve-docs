@@ -92,3 +92,23 @@ $ wget example.com/big_file.tar.gz && mail -s 'Success' my.mail@example.com <<< 
 ```
 
 さっぱりわからなかった。 `&&` `||` はbash演算子で終了ステータスを判定する。
+
+## Q9 Catch?
+
+```sh
+$ tailf access.log | awk '($9==500){print}{fflush()} | xargs -I_ mail -s '500 Fail.' my.mail@example.com <<< "_"
+```
+
+`&` でバックグラウンドにすると良い。`mail` がうまく動かず未確認。たぶん動くと思う。  
+`tailf` は `awk` や `grep` などバッファしないオプションのあるコマンドを使わないといけないようだ。
+
+
+## Q10 Through
+
+これは無理
+
+```sh
+$ openssl s_client -host twitter.com -port 443 < /dev/null 2> /dev/null | openssl x509 -text | grep 'Not After'
+```
+
+`openssl` コマンド使ったことありません。
