@@ -83,3 +83,12 @@ $ ps aux | awk '(NR>1) { c[$1]+=$3; m[$1]+=$4 } END{ for(i in c) print i, c[i], 
 ```
 
 プロセスの件数をカウントしてもよい。
+
+
+## Q8 Through
+
+```sh
+$ wget example.com/big_file.tar.gz && mail -s 'Success' my.mail@example.com <<< '' || mail -s 'Failed.' my.mail@example.com <<< ''
+```
+
+さっぱりわからなかった。 `&&` `||` はbash演算子で終了ステータスを判定する。
