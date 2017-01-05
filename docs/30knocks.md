@@ -53,6 +53,7 @@ ruby 使えたらほぼなんでもできそうな気がしてきた。
 ```sh
 $ cat log_range.log | sed -n -e '/24\/Dec\/2016 21/,/25.*2016 03/p'
 $ cat log_range.log | ruby -ne 'p=true if ~/24\/Dec\/2016 21/; print if p; p=false if ~/25\/Dec\/2016 03/'
+$ cat log_range.log | ruby -ne 'print if /24\/Dec\/2016 21/../25\/Dec\/2016 03/' # これでいける
 ```
 `awk` でもできるのか！
 
@@ -64,5 +65,13 @@ log_range.log http://bit.ly/2ih96JR
 ```sh
 $ find . | awk -F'/' '{ c[$2] +=1} END{ for(i in c){ print i, " " c[i]} }'`
 ```
-
 ぜんぜんちがった。
+
+```sh
+# answer
+$ find . -type d | while read d; do echo -n $d" "; find "$d" -type f -maxdepth 1 | wc -l; done
+```
+`while read f; do command $f ; done` のイディオムをうまく使う。
+`-type` `-maxdepth` のオプションを知った。
+
+
