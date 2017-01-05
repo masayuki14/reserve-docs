@@ -75,3 +75,11 @@ $ find . -type d | while read d; do echo -n $d" "; find "$d" -type f -maxdepth 1
 `-type` `-maxdepth` のオプションを知った。
 
 
+
+## Q7 Catch
+
+```sh
+$ ps aux | awk '(NR>1) { c[$1]+=$3; m[$1]+=$4 } END{ for(i in c) print i, c[i], m[i] }' | sort -rn -k2,3
+```
+
+プロセスの件数をカウントしてもよい。
