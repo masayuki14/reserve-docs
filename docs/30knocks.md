@@ -112,3 +112,49 @@ $ openssl s_client -host twitter.com -port 443 < /dev/null 2> /dev/null | openss
 ```
 
 `openssl` コマンド使ったことありません。
+
+## Q11 Through
+
+これもわからない
+
+```sh
+$ echo '@reboot /bin/sleep 180 && /sbin/poweroff' | sudo crontab
+```
+
+## Q12 Catch
+
+bash 自体はよくわからんがなんとか。
+
+```sh
+$ seq 1 100 | while read n; do sleep 1 ; echo "羊が$n匹"; done
+```
+
+```bash
+#!/bin/bash
+
+n=1
+while [ $n -le 100 ]
+do
+  echo -e "羊が$n匹"
+  n=$((n + 2))
+  sleep 1
+done
+```
+
+`[` は `test` の別名でオプションを覚えるといい。  
+`$(( 3 * 8 ))` 算術式展開  
+`$(seq 1 10)` コマンド置換  
+
+
+## Q13 Catch
+
+```sh
+$ echo -e '\U1F37A' '\U1F363'
+```
+
+## Q14 Through
+
+```sh
+$ set | grep VER
+```
+`zsh`だとsetの出力をgrepできない。なんでだろう。
