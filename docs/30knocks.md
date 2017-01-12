@@ -157,4 +157,48 @@ $ echo -e '\U1F37A' '\U1F363'
 ```sh
 $ set | grep VER
 ```
+
 `zsh`だとsetの出力をgrepできない。なんでだろう。
+
+## Q15 Catch
+
+```bash
+#!/bin/bash
+
+function double () {
+	for n in $@ ; do
+		echo -n $(( n * 2 )) ' '
+	done
+	echo
+}
+
+if [ -p /dev/stdin ] ; then
+	double $( cat /dev/stdin )
+else
+	double $@
+fi
+```
+
+bashプログラミング慣れない。
+
+```bash
+#!/bin/bash
+num=${1:-$(cat)}
+echo $(( $num * 2 ))
+```
+
+`:-` `:=` `:+` `:?` とか分からない。
+http://qiita.com/bsdhack/items/597eb7daee4a8b3276ba
+
+
+## Q16 Catch
+
+```
+$ rm -rf ./~
+$ rm -rf ./-Rf
+```
+
+`--` でオプション打ち止めとなる。
+```sh
+$ rm -rf -- -Rf
+```
