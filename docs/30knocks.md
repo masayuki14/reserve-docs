@@ -202,3 +202,54 @@ $ rm -rf ./-Rf
 ```sh
 $ rm -rf -- -Rf
 ```
+
+## Q17 Through
+
+```bash
+$ while read f; do echo $f; done  < /etc/passwd > ~/a
+$ echo "$(</etc/passwd)" > ~/a
+```
+
+リダイレクトとコマンド置換を使えばファイルを読めるのか。すごいな。
+
+## Q18 Catch
+
+```bash
+$ echo 'i am a perfect human' | tr "[:lower:]" "[:upper:]"
+$ echo pen-pineapple-apple-pen | sed -e 's/^p/P/' | sed -e 's/-p/-P/g' | sed -e 's/-a/-A/g'
+```
+
+一応出来たけど・・・。
+
+```bash
+$ echo i am a perfect human | (read a; echo ${a^^})
+$ echo pen-pineapple-apple-pen | (IFS=-; read -a w; echo ${w[*]^})
+```
+
+難しいなぁ。
+
+
+## Q19 Through
+
+```bash
+$ (IFS=:; while read -a w; do echo ${w[6]}; done < /etc/passwd)
+```
+
+難しい。ロジック自体はシンプルでbash構文を知ってるかどうか。
+
+```bash
+IFS=:
+while read {a..g}
+do
+  case ${g} in
+    */sh )
+      sh=$(( ${sh} + 1 ));;
+    */bash)
+      bash=$(( ${bash} + 1 ));;
+  esac
+done < /etc/passwd
+echo "bash: " ${bash}
+echo "sh: " ${sh}
+```
+
+
