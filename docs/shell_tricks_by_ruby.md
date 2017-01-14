@@ -144,6 +144,25 @@ $ cat ip_list.txt | ruby -F'\.' -nae 'p $F'
 ["192", "30", "252", "153\n"]
 ```
 
+### **-r _library_ **
+
+ライブラリを `require` するためのオプションです。
+
+```sh
+# YAMLを扱う
+$ ruby -r 'yaml' -e 'data={name: "Jhon", from: {region: "EURO", country: "ENG"}, age: 28}; puts data.to_yaml()'
+$ ruby -r 'yaml' -e 'puts YAML.load(STDIN.read)' < ./data
+$ ruby -r 'yaml' -e 'puts YAML.load(STDIN.read)' <<< '
+---
+:name: Jhon
+:from:
+  :region: EURO
+  :country: ENG
+:age: 28
+'
+```
+
+
 ## 特殊変数
 
 ## オプションと特殊変数をうまく使う
