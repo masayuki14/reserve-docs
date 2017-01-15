@@ -252,4 +252,34 @@ echo "bash: " ${bash}
 echo "sh: " ${sh}
 ```
 
+## Q20 Catch
+
+```bash
+$ git status | grep 'modified.*B' | awk '{print $2}' | xargs git add
+```
+
+問題とは言えまわりくどい。--
+
+```bash
+$ git ls-files -m | grep 'B' | xargs git add
+```
+
+`git ls-files` 初めて知った。余計な処理がいらなくなる。
+
+
+## Q21 Catch
+
+```bash
+$ find -f . | grep -E '.css/.+|img/.+' | xargs git reset HEAD~
+```
+
+`$ find css img -type f` で事足りるのか。
+
+
+## Q22 Through
+
+```bash
+$ git br -a --no-merged
+```
+この先どうしたらいいのか。
 
