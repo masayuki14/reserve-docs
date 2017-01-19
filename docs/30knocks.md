@@ -283,3 +283,22 @@ $ git br -a --no-merged
 ```
 この先どうしたらいいのか。
 
+```bash
+$ git branch -a --no-merged |\
+while read branch; \
+do
+  git log -1 --since=$(date -d '1 month ago' +%Y-%m-%d) $branch |\
+  grep -q . || \
+  git log -1 --date=short --pretty=format:"%cd | %an | $branch " $branch
+done
+```
+
+## Q23 Catch
+
+```bash
+$ git log --pretty=format:"%cd" --date=raw | awk 'BEGIN{prev=0} {if (prev != 0) { print (prev - $1)/(60 * 60); prev = $1 } else { prev = $1}}'
+```
+awk のifは変数を条件にしてやれば使わなくていい。formatも%ctを使う。
+```bash
+$ git log --pretty=format:"%ct" | awk 'prev{ print (prev-$0)/3600 }{ prev = $0}'
+```
