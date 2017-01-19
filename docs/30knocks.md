@@ -302,3 +302,11 @@ awk のifは変数を条件にしてやれば使わなくていい。formatも%c
 ```bash
 $ git log --pretty=format:"%ct" | awk 'prev{ print (prev-$0)/3600 }{ prev = $0}'
 ```
+
+## Q24 Catch
+
+```bash
+$ seq 5 1 | awk '{for(i=0;i<$0-1;i++){ printf " " } print "X"}'
+```
+Linuxだと　`seq 5 -1 1` にしないといけないようだ。
+
