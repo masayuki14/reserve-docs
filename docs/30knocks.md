@@ -338,3 +338,4 @@ false
 `xargs _I_ echo -n`は`xargs | tr -d ' '`でも同じ。  
 `awk '$1==$2'` 一致したときだけ出力、にすればシンプル。  
 
+`paste` `tee` `<( command)` プロセス置換。
