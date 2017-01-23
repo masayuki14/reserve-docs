@@ -310,3 +310,31 @@ $ seq 5 1 | awk '{for(i=0;i<$0-1;i++){ printf " " } print "X"}'
 ```
 Linuxだと　`seq 5 -1 1` にしないといけないようだ。
 
+## Q25 Catch
+
+```bash
+$ seq 1 99 | xargs -I_ ln hoge hoge_
+```
+
+ハードリンクとシンボリックリンクの違いとは。
+
+
+## Q26 Catch
+
+```bash
+$ cat kaibun
+たけやぶ
+やけた
+$ cat not_kaibun
+やぶけた
+やけた
+$ a=$( cat kaibun | xargs -I_ echo -n _ ); b=$( echo -n $a | ruby -ne 'print $_.reverse' ); echo -n $a $b | awk '{ if ($1==$2){print "true"}else{print "false"} }'
+true
+$ a=$( cat not_kaibun | xargs -I_ echo -n _ ); b=$( echo -n $a | ruby -ne 'print $_.reverse' ); echo -n $a $b | awk '{ if ($1==$2){print "true"}else{print "false"} }'
+false
+```
+
+反転は`rev`でできる。  
+`xargs _I_ echo -n`は`xargs | tr -d ' '`でも同じ。  
+`awk '$1==$2'` 一致したときだけ出力、にすればシンプル。  
+
