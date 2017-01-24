@@ -338,4 +338,27 @@ false
 `xargs _I_ echo -n`は`xargs | tr -d ' '`でも同じ。  
 `awk '$1==$2'` 一致したときだけ出力、にすればシンプル。  
 
-`paste` `tee` `<( command)` プロセス置換。
+`paste` `tee` `<( command )` プロセス置換。
+
+```bash
+$ paste <(grep -o . kaibun) <(grep -o . kaibun | tac) | awk '$1!=$2'
+```
+模範解答はさすが。
+
+
+## Q27 Catch
+
+```bash
+$ seq 0 364 | xargs -I_ date -v1m -v1d -v+_d '+%m %w' | awk '$2==0' | uniq -c | awk '$1==5'
+```
+
+模範解答と考え方は同じ。
+
+
+## Q28
+
+```bash
+$ cat crypt | base64 -d | gzip -d > b; chmod +x b; ./b | sed 's/..../\\U&/g' | sed 's/.*/echo -e "&"/' | bash
+```
+
+難しすぎる。`file` コマンドしらん。
