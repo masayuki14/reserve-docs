@@ -355,7 +355,7 @@ $ seq 0 364 | xargs -I_ date -v1m -v1d -v+_d '+%m %w' | awk '$2==0' | uniq -c | 
 模範解答と考え方は同じ。
 
 
-## Q28
+## Q28 Through
 
 ```bash
 $ curl 'https://raw.githubusercontent.com/ryuichiueda/ShellGeiData/master/sd201701/crypt' -o crypt
@@ -364,7 +364,7 @@ $ cat crypt | base64 -d | gzip -d > b; chmod +x b; ./b | sed 's/..../\\U&/g' | s
 
 難しすぎる。`file` コマンドしらん。
 
-## Q29
+## Q29 Catch
 
 ```bash
 $ curl 'https://raw.githubusercontent.com/ryuichiueda/ShellGeiData/master/sd201701/alphabet_connection' -o alphabet
@@ -372,3 +372,12 @@ $ cat alphabet | xargs -n 1 | sort | xargs | ruby -nae '$F.each_with_index{|e,i|
 ```
 
 困ったときのrubyプログラミング
+
+
+## Q30 Through
+
+```bash
+$ echo $BASH_COMMAND
+```
+
+クワイン知らないん。なんか超越した考え方だった。

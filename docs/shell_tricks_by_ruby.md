@@ -190,3 +190,15 @@ lambda 式
 - [Rubyワンライナー入門](http://maeharin.hatenablog.com/entry/20130113/ruby_oneliner)
 - [プログラミング言語Ruby](http://amzn.to/2govaCN)
 
+
+# memo
+
+```
+$ cat ip_list.txt | ruby -ne 'chomp' -e 'gsub(/[13]/,"*")' -e 'print' -F'\.' -ae 'puts "\t"+$F[0]'
+*92.*0.252.*5*  192
+54.*97.246.2* 54
+**8.*5*.*7*.74  118
+
+$ ls | head -n 1 | ruby -F123 -nae 'p $;'
+/123/
+```
