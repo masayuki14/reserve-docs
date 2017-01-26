@@ -381,3 +381,12 @@ $ echo $BASH_COMMAND
 ```
 
 クワイン知らないん。なんか超越した考え方だった。
+
+# Hit Rate
+
+```bash
+$ cat 30knocks.md | awk '/Catch/{c+=1} /Through/{t+=1} END{printf("Catch: %d\nThrough: %d\n%3.2f% (%d/%d)\n", c,t, (c/(c+t)*100.0), c, (c+t))}'
+Catch: 19
+Through: 11
+63.33(19/30)
+```
