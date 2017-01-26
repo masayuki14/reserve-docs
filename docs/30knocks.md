@@ -358,7 +358,17 @@ $ seq 0 364 | xargs -I_ date -v1m -v1d -v+_d '+%m %w' | awk '$2==0' | uniq -c | 
 ## Q28
 
 ```bash
+$ curl 'https://raw.githubusercontent.com/ryuichiueda/ShellGeiData/master/sd201701/crypt' -o crypt
 $ cat crypt | base64 -d | gzip -d > b; chmod +x b; ./b | sed 's/..../\\U&/g' | sed 's/.*/echo -e "&"/' | bash
 ```
 
 難しすぎる。`file` コマンドしらん。
+
+## Q29
+
+```bash
+$ curl 'https://raw.githubusercontent.com/ryuichiueda/ShellGeiData/master/sd201701/alphabet_connection' -o alphabet
+$ cat alphabet | xargs -n 1 | sort | xargs | ruby -nae '$F.each_with_index{|e,i| if (i==0); print e; else; if (e.ord==$F[i-1].ord+1); print "-#{e}"; else; print " #{e}" end; end}' | sed -E 's/([a-z])-[^ ]*-([a-z])/\1-\2/g'
+```
+
+困ったときのrubyプログラミング
