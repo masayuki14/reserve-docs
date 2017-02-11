@@ -151,7 +151,13 @@ $ cat ip_list.txt | ruby -F'\.' -nae 'p $F'
 ```sh
 # YAMLを扱う
 $ ruby -r 'yaml' -e 'data={name: "Jhon", from: {region: "EURO", country: "ENG"}, age: 28}; puts data.to_yaml()'
-$ ruby -r 'yaml' -e 'puts YAML.load(STDIN.read)' < ./data
+---
+:name: Jhon
+:from:
+  :region: EURO
+  :country: ENG
+:age: 28
+
 $ ruby -r 'yaml' -e 'puts YAML.load(STDIN.read)' <<< '
 ---
 :name: Jhon
@@ -160,6 +166,7 @@ $ ruby -r 'yaml' -e 'puts YAML.load(STDIN.read)' <<< '
   :country: ENG
 :age: 28
 '
+{:name=>"Jhon", :from=>{:region=>"EURO", :country=>"ENG"}, :age=>28}
 ```
 
 
