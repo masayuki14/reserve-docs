@@ -41,7 +41,7 @@ Rubyを使ってシェル芸やってみよう
 
 
 
-### **-e_スクリプト_**
+### **-e _スクリプト_**
 
 コマンドラインから与えられたスクリプトをrubyコードとして実行します。
 他のオプションを使う場合は最後に指定します。正規表現ショートカットが利用できます。
@@ -84,18 +84,6 @@ $ cat ip_list.txt
 
 $ ruby -ne 'puts $_' ip_list.txt
 $ cat ip_list.txt | ruby -ne 'puts $_'
-```
-
-#### 暗黙的な `$_` 操作
-
-`print` `chop` `chomp` `sub` `gsub`
-これらのグローバル関数は暗黙的に `$_` を操作し、結果を `$_` に戻します。
-
-```sh
-$ cat ip_list.txt | ruby -ne 'print'
-$ cat ip_list.txt | ruby -ne 'chop; print'
-$ cat ip_list.txt | ruby -ne 'sub(".", "-"); print'
-$ cat ip_list.txt | ruby -ne 'gsub(/[12]/, "X"); print'
 ```
 
 ### **-p**
@@ -169,8 +157,37 @@ $ ruby -r 'yaml' -e 'puts YAML.load(STDIN.read)' <<< '
 {:name=>"Jhon", :from=>{:region=>"EURO", :country=>"ENG"}, :age=>28}
 ```
 
+## 暗黙的な`$_`操作
 
-## 特殊変数
+### グローバル関数
+
+`print` `chop` `chomp` `sub` `gsub`
+これらのグローバル関数は暗黙的に `$_` を操作し、結果を `$_` に戻します。
+
+```sh
+$ cat ip_list.txt
+118.151.171.74
+54.197.246.21
+192.30.252.153
+
+$ cat ip_list.txt | ruby -ne 'print'
+$ cat ip_list.txt | ruby -ne 'chop; print'
+$ cat ip_list.txt | ruby -ne 'sub(".", "-"); print'
+$ cat ip_list.txt | ruby -ne 'gsub(/[12]/, "X"); print'
+```
+
+### 正規表現での比較
+
+条件式(if unless etc.)に単独の正規表現リテラルがある場合暗黙のうち`$_`と比較される。
+
+```sh
+$ cat ip_list.txt | ruby -ne 'print if /192/'
+192.30.252.153
+
+$ cat ip_list.txt | ruby -ne 'print if %r{1.1}'
+118.151.171.74
+```
+
 
 ## オプションと特殊変数をうまく使う
 
