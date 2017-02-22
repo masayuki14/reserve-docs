@@ -244,6 +244,21 @@ $ ruby -r 'date' -e 'puts DateTime.now.strftime("%Y-%m-%d %H:%M:%S")'
 2017-02-22 22:50:23
 ```
 
+### 行番号
+
+```
+$ ls . | cat -n
+$ ls . | ruby -ne 'printf "%5d %s", $., $_'
+```
+
+### seq
+
+```
+$ seq 1 5
+$ ruby -e '(1..5).each{|e| puts e}'
+$ ruby -e '(0..5).reduce(:puts)'
+```
+
 ### lambda 式
 
 
@@ -252,6 +267,7 @@ $ ruby -r 'date' -e 'puts DateTime.now.strftime("%Y-%m-%d %H:%M:%S")'
 - [Rubyの特殊変数一覧](https://gist.github.com/kwatch/2814940)
 - [Rubyワンライナー入門](http://maeharin.hatenablog.com/entry/20130113/ruby_oneliner)
 - [プログラミング言語Ruby](http://amzn.to/2govaCN)
+- [Ruby one-liners](http://benoithamelin.tumblr.com/ruby1line)
 
 
 # memo
