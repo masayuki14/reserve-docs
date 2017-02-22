@@ -190,11 +190,7 @@ $ cat ip_list.txt | ruby -ne 'print if %r{1.1}'
 
 ## 実践シェルビー芸
 
-### 正規表現で絞り込む
-
-正規表現を使うことで
-
-### Apacheログの解析
+### Apacheログの抽出
 
 特定の時間帯のログだけを絞り込むことを考る。
 例えば 2017年1月16日の21時台から2017年1月17日4時台のログを出力する。
@@ -207,23 +203,48 @@ $ cat access.log | awk '/16\/Feb\/2017 21/,/17\/Feb\/2017 04/'
 
 `sed` `awk` のほうが短い・・・。
 
-## オプションと特殊変数をうまく使う
 
-### 組み合わせ
+### 暗号化
 
-# sed awk の代替になるのか
+```
+$ md5 -s ''
+MD5 ("") = d41d8cd98f00b204e9800998ecf8427e
+$ md5 -s '' | cut -f4 -d' '
+d41d8cd98f00b204e9800998ecf8427e
+$ md5 -s ''
+$ ruby -r 'digest' -e 'puts Digest::MD5.hexdigest("")'
+```
 
-## post sed
+```
+$ ruby -r 'digest' -e 'puts Digest::SHA256.hexdigest("")'
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+$ ruby -r 'digest' -e 'puts Digest::SHA512.hexdigest("")'
+cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 
-## post awk
+$ ruby -r 'digest' -e 'puts Digest::MD5.base64digest("")'
+1B2M2Y8AsgTpgAmY7PhCfg==
+```
 
-## original trick
+### 反転
 
-ruby ならではの使い方
+```
+$ echo 'a b c d e' | rev
+e d c b a
 
-lambda 式
+$ echo 'a b c d e' | ruby -nle 'puts $_.reverse'
+e d c b a
+```
 
-# 外部スクリプトにする
+### 日時
+
+```
+$ date +'%Y-%m-%d %H:%M:%S'
+2017-02-22 22:50:18
+$ ruby -r 'date' -e 'puts DateTime.now.strftime("%Y-%m-%d %H:%M:%S")'
+2017-02-22 22:50:23
+```
+
+### lambda 式
 
 
 # 参考
