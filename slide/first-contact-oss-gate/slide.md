@@ -4,9 +4,9 @@ author
 :   @masayuki14
 
 theme
-:   nari
+:   blue-bar
 
-# OSS Gate に参加してきたよ
+# OSS Gate に参加してきた
 
 - [OSS Gate大阪ワークショップ](https://oss-gate.doorkeeper.jp/events/56141)
 
