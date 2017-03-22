@@ -24,5 +24,5 @@ $ bundle install --path vendor/bundle
 $ bundle exec rake doc:server
 ```
 
-`doc:server` タスクを実行するとWebServerが立ち上がり `http://127.0.0.1:4000/index.html.ja' にアクセスしてください。
+`doc:server` タスクを実行するとWebServerが立ち上がります。`http://127.0.0.1:4000/index.html.ja` にアクセスしてください。
 Rabbit ウェブサイトのホームページが表示されます。
