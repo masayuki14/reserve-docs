@@ -12,3 +12,13 @@ PhpStormのEmacsKeymapでよくつかう操作とショートカット
 | Shift + Ctrl + z | Redo ||
 | alt + ; | 行コメント化 | Comment with Line Comment |
 | Shift + Ctrl + / | ブロックコメント化 | |
+| M-/ | コード補完 | |
+| C-M-/ <br> Shift + Ctrl + Enter | スマートタイプ（補完） | |
+
+
+
+
+
+* C-x => Ctrlとxを同時に押す
+* M-f => Altとfを同時に押す
+いずれもEmacsの伝統的な書き方。
