@@ -16,7 +16,7 @@ PhpStormのEmacsKeymapでよくつかう操作とショートカット
 | C-M-/ <br> Shift + Ctrl + Enter | スマートタイプ（補完） | |
 | C-M-Q <br> Ctrl + Alt + q | 自動インデント ||
 
-
+| C-M-w <br> Ctrl + Alt + w | キャレットの位置に応じて選択状態にする。連打で範囲が広がっていく | |
 
 
 
