@@ -14,6 +14,7 @@ PhpStormのEmacsKeymapでよくつかう操作とショートカット
 | Shift + Ctrl + / | ブロックコメント化 | |
 | M-/ | コード補完 | |
 | C-M-/ <br> Shift + Ctrl + Enter | スマートタイプ（補完） | |
+| C-M-Q <br> Ctrl + Alt + q | 自動インデント ||
 
 
 
