@@ -37,34 +37,57 @@ Mackerelは
 
 # System Metrics
 
-- Load Avarage
-    「1CPUにおける単位時間あたりの実行待ちとディスクI/O待ちのプロセスの数」
+エージェント(mackrel-agent) が収集・投稿するメトリック
+
+- Load Average
 - CPU使用率
 - Memory使用率
 - DiskIO
-    read/write 回数
 - Interface
-- FileSystem
+- FileSystem使用率
 
-# 例
+## ちょっと解説
+
+- Load Average
+    * 「1CPUにおける単位時間あたりの実行待ちとディスクI/O待ちのプロセスの数」
+    * CPUコア1つでロードアベレージが1ならCPUが100％使用されている状態
+    * 16コアでロードアベレージ16ならCPUが100％使用されている状態
+- DiskIO
+    * Input/Output Per Second.
+    * ディスクの読み書きに関する、IOPS（1秒あたりのI/Oアクセス数）の値
+    * 1秒間で読み込み・書き込みができる回数
+- Interface
+    * ネットワークの使用状況 (KB/sec)
+    * tx: 送信, rx: 受信
+
+[参考](http://blog.a-know.me/entry/2017/02/02/215641)
+
+## グラフの例
 
 CPU
 
 Memory
 
+# Custom Metric
+
+任意の値（カスタムメトリック）を定期的にエージェントから投稿できる
+
 # Webサーバーを計測する
 
-独自の監視項目を定義し継続的に観測する
+サービス独自の監視項目を定義し継続的に観測する
 
-# カスタムメトリック
-
+- アクセス数
 - HTTP STATUS CODE
-- 
-
+- レスポンスタイム
 
 # アクセスログを解析する
 
+apacheのアクセスログを解析しデータを算出
+
+エージェント経由でデータを投稿
+
 # シェルでテキスト処理
+
 
 # アクセス数
 
