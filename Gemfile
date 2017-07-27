@@ -2,5 +2,6 @@
 source "https://rubygems.org"
 
 # gem "rails"
+gem "rake"
 gem "rabbit"
 gem "rabbiter"
