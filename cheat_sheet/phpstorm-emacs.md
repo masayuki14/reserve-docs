@@ -5,8 +5,7 @@ PhpStormのEmacsKeymapでよくつかう操作とショートカット
 | C-x, k | タブ削除 | Editor Tabs / Close |
 | C-x, n | 次のタブへ | Select Next Tab |
 | C-x, p | 前のタブへ | Select Previous Tab |
-| Shift Shift | ファイル検索 ||
-| C-s | ファイル内検索 ||
+| alt + ↑, alt + ↓ | メソッド位置にカーソルをに移動 |
 | Esc, Esc | キャンセル、無効。困ったときに連打 ||
 | Shift + Ctrl + - <br> Ctr + / | Undo ||
 | Shift + Ctrl + z | Redo ||
@@ -16,6 +15,10 @@ PhpStormのEmacsKeymapでよくつかう操作とショートカット
 | C-M-/ <br> Shift + Ctrl + Enter | スマートタイプ（補完） | |
 | C-M-Q <br> Ctrl + Alt + q | 自動インデント ||
 | C-M-w <br> Ctrl + Alt + w | キャレットの位置に応じて選択状態にする。連打で範囲が広がっていく | |
+| | | |
+| Shift Shift | ファイル検索 ||
+| C-s | ファイル内検索 ||
+| Shift + Ctrl + F | Find in path プロジェクト内の検索。grepみたいなもの |
 
 
 
