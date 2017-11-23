@@ -27,7 +27,7 @@ fluxアーキテクチャについて理解する必要があります。fluxを
 
 アーキテクチャの構成要素と一方向性の特徴がつかめればいい。
 
-https://qiita.com/knhr__/items/5fec7571dab80e2dcd92
+[qiita](https://qiita.com/knhr__/items/5fec7571dab80e2dcd92)
 http://post.simplie.jp/posts/36
 
 https://github.com/facebook/flux
@@ -62,6 +62,7 @@ https://vuex.vuejs.org/ja/intro.html
 ## まずはステートから
 
 まずはステートの導入から初めましょう。以下のような何でもない Sample.vue を例にします。
+[ステートのドキュメント](https://vuex.vuejs.org/ja/state.html)
 
 ```components/Sample.vue
 <template>
@@ -114,7 +115,7 @@ new Vue({
 次はVuexストアから `msg` ステートを読み込んで `Sample.vue` に表示しましょう。
 コンピューテッドプロパティからストアを参照するように変更します。
 
-```Sample.vue
+```components/Sample.vue
 export default {
   name: 'sample',
   data() {
@@ -137,7 +138,7 @@ export default {
 
 msgのようなステートを複数読み込む場合には `mapState` ヘルパーを使うことで簡潔に記述することができます。
 
-```Sample.vue
+```components/Sample.vue
 import { mapState } from 'vuex';
 
 export default {
@@ -157,7 +158,7 @@ export default {
 
 `msg` の長さを取得するコンピューテッドプロパティを定義したい場合にもローカルステートのようにthisでアクセスできます。
 
-```Sample.vue
+```components/Sample.vue
 computed: {
   msgLength() {
     return this.msg.length;
@@ -174,7 +175,7 @@ computed: {
 
 ステートの `msg` を更新するにはどうしたら良いでしょうか。更新ボタンをクリックすると、フォームの入力値でステートを更新するようにします。
 
-```Sample.vue
+```components/Sample.vue
 <input type="text" v-model="newMsg" />
 <button @click="update">更新</button>
 
@@ -200,6 +201,79 @@ export default {
 
 ## ミューテーションを定義する
 
-Vuex のストアの状態を変更できる唯一の方法は、ミューテーションをコミットすることです。
+Vuex のストアの状態を変更するためにミューテーションを定義します。
+[ミューテーションのドキュメント](https://vuex.vuejs.org/ja/state.html)
 
 
+```main.js
+const store = new Vuex.Store({
+  state: {
+    msg: 'Hello Vuex Store.',
+  },
+  mutations: {
+    updateMsg(state, newMsg) {
+      state.msg = newMsg;
+    },
+  },
+});
+```
+
+この時 `updateMsg` をタイプ、定義された関数をハンドラと呼びます。`updateMsg` というイベントを登録するようなものです。
+これを起動するには `store.commit('updateMsg')` を呼び出す必要があります。
+※air-bnb のESLintルールにしているとエラーがでるので `.eslintrc.js` に `"no-param-reassign": 0` を追加します。
+
+```components/Sample.vue
+methods: {
+  update() {
+    // this.$store.state.msg = this.newMsg;
+    this.$store.commit('updateMsg', this.newMsg);
+  },
+},
+```
+
+## タイプに定数を使う
+
+`updateMsg` のようなタイプに定数を使うのがVuexのスタンダードなのでそれにならいましょう。
+
+```main.js
+const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
+
+const store = new Vuex.Store({
+  state: {
+    msg: 'Hello Vuex Store.',
+  },
+  mutations: {
+    [UPDATE_MESSAGE](state, newMsg) {
+      state.msg = newMsg;
+    },
+  },
+});
+```
+
+こうなると、`commit` する箇所でも同じ定数を使う必要になるので外部ファイルに定義をしましょう。
+`store/mutation-types.js` を作成し底定数を定義します。 `main.js` ではそのファイルを `import` します。
+
+```store/mutation-types.js
+export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
+export const DUMMY_TYPE = 'DUMMY_TYPE';             // ESLint対策、exportが1つだけだとErrorがでます
+```
+
+```main.js
+import * as types from './store/mutation-types';
+
+mutations: {
+  [types.UPDATE_MESSAGE](state, newMsg) {
+    state.msg = newMsg;
+  },
+},
+```
+
+```components/Sample.vue
+import * as types from '@/store/mutation-types';
+
+methods: {
+  update() {
+    this.$store.commit(types.UPDATE_MESSAGE, this.newMsg);
+  },
+},
+```
