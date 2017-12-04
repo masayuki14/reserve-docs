@@ -8,14 +8,13 @@ Vuexはflaxアーキテクチャを採用した公式プラグインで、vue.js
 とはいえ、いざ使ってみようという時には、なかなか気が引けてしまうもの。
 自分が導入を試みた時も、いろいろと悩むポイントがありました。
 
-どこから手をつけていいかわからない
-ファイル構成のお手本が知りたい
-スタンダードな書き方を知りたい
+- どこから手をつけていいかわからない
+- ファイル構成のお手本が知りたい
+- スタンダードな書き方を知りたい
 
 このあたりのことを、どう解決したかについて今回は紹介します。
 
-
-#はじめにすること
+# はじめにすること
 
 ドキュメント読もう。なかなか苦手な人もいるけどがんばれ。
 **なにを意識しながら読むか**が決まっていれば読みやすいでしょう。
@@ -277,3 +276,100 @@ methods: {
   },
 },
 ```
+
+## アクションを利用する
+
+アクションはミューテーションと似ていますが、状態を変更しない点が異なります。
+APIコールなどの非同期処理を含むことができ、ミューテーションをコミットすることで状態を変更します。
+文字列を繰り返すアクションを登録してみましょう。
+
+```main.js
+const store = new Vuex.Store({
+  actions: {
+    repeat(context) {
+      let msg = context.state.msg
+      context.commit(types.UPDATE_MESSAGE, `${msg} ${msg}`)
+    },
+  }
+});
+```
+
+`context.state` で状態にアクセスし、 `context.commit` を呼び出すことでミューテーションにコミットできます。
+
+## アクションのディスパッチ
+
+アクションは `store.dispatch` により実行されます。
+「繰り返す」ボタンをクリックされた時にアクションをディスパッチします。
+すると `repeat` アクションが実行され、表示が更新されます。
+
+```components/Sample.vue
+<button @click="repeat">繰り返す</button>
+
+methods: {
+  repeat() {
+    this.$store.dispatch('repeat')
+  },
+},
+```
+
+これでVuexを使った一連のコードを実装することできました。
+
+## ファイルの分割とモジュール化
+
+`main.js` に実装したVuexのコードを専用のファイルに分割しましょう。
+`store/index.js` を作成しそちらにコードを移します。
+ミューテーションやアクションもそれぞれ別の変数で管理します。
+
+```store/index.js
+import Vue from 'vue';
+import Vuex from 'vuex';
+import * as types from './mutation-types';
+
+Vue.use(Vuex);
+
+const state = {
+  msg: 'Hello Vuex Store.',
+};
+
+const mutations = {
+  [types.UPDATE_MESSAGE](state, newMsg) {
+    state.msg = newMsg;
+  },
+};
+
+const actions = {
+  repeat(context) {
+    let msg = context.state.msg;
+    context.commit(types.UPDATE_MESSAGE, `${msg} ${msg}`);
+  },
+};
+
+export default new Vuex.Store({
+  state,
+  mutations,
+  actions,
+});
+```
+
+```main.js
+import store from './store';
+
+new Vue({
+  store,
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App },
+});
+```
+
+機能ごとにファイルが別れて管理しやすくなりました。これでVuexの基本的な機能を使って実装することができました！
+
+
+# サンプルコードを読んでスタンダードを知る
+
+最後にVuexを使ったプログラムのスタンダードな書き方についてです。
+Vuexのリポジトリでは[サンプルコード](https://github.com/vuejs/vuex/tree/dev/examples)が公開されています。
+
+
+
