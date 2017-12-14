@@ -4,9 +4,9 @@
 
 # 自己紹介
 
-森崎 雅之
+## 森崎 雅之
 
-@masayuki14
+## @masayuki14
 
 ---
 
@@ -18,17 +18,19 @@
 
 ---
 
-# スプーキーズ
+## スプーキーズ
 
-### スマホゲーム ✕ ボードゲーム
+## スマホゲーム ✕ ボードゲーム
 
-<img src="http://spookies.co.jp/images/spookies_logo.png" />
+<img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" />
 
 ---
 
-# スプーキーズ
+## スプーキーズ
 
-# メンバー募集中
+## メンバー募集中
+
+<img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" />
 
 ---
 
@@ -46,16 +48,16 @@
 
 ---
 
-# バージョン
+## バージョン
 
-## 2系と3系どっちをえらんだらいいの？
+# 2系と3系どっちをえらんだらいいの？
 
 - python 2.7
 - python 3.6
 
 ---
 
-# バージョン
+## バージョン
 
 ## python.orgによると
 
@@ -67,15 +69,15 @@ https://wiki.python.org/moin/Python2orPython3
 
 ---
 
-# バージョン
+## バージョン
 
-今から始めるなら
+## 今から始めるなら
 
-## Python 3
+# Python 3
 
 ---
 
-# 環境
+## 環境
 
 ## on Mac
 
@@ -85,9 +87,9 @@ https://wiki.python.org/moin/Python2orPython3
 
 ---
 
-# 環境
+## 環境
 
-## brew
+# brew
 
 ```console
 $ brew install python3
@@ -97,9 +99,9 @@ $ python3
 
 ---
 
-# 環境
+## 環境
 
-## pyenv
+# pyenv
 
 ```console
 $ brew install pyenv
@@ -111,9 +113,9 @@ $ pyenv install [version]
 
 ---
 
-# 環境
+## 環境
 
-## Docker
+# Docker
 
 ```Dockerfile
 FROM python:latest
@@ -126,44 +128,50 @@ $ docker run -it --rm python3 /bin/bash
 
 ---
 
-# ほかのLLとの違い
+## ほかのLLとの違い
 
 - ruby
 - perl
 - etc
 
+
+---
+
+## ほかのLLとの違い
+
+# バイトコンパイル
+
+---
+
+## python処理系
+
+- コードを解析 |
+- 仮想マシン用のバイトコードに変換 |
+- 仮想マシンで実行 |
+
+---
+
 ## バイトコンパイル
 
----
-
-# python処理系
-
-1. コードを解析 |
-1. 仮想マシン用のバイトコードに変換 |
-1. 仮想マシンで実行 |
+# 事前にバイトコードにして保存して
 
 ---
 
-# バイトコンパイル
+## バイトコンパイル
 
-## 事前にバイトコードにして保存しておける
-
----
-
-# バイトコンパイル
-
-## 高速化できる！！
+# 高速化できる！！
 
 ---
 
-# まとめ
+## まとめ
 
 - バージョンは3系を使おう |
 - Macなら簡単に使える |
 - バイトコードは速い |
 
+---
 
-# さいごに
+## さいごに
 
 ```
 $ python3 -c 'print("Hello Python!")'
