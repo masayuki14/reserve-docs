@@ -22,11 +22,36 @@
 
 ### スマホゲーム ✕ ボードゲーム
 
+<img src="http://spookies.co.jp/images/spookies_logo.png" />
+
+---
+
+# スプーキーズ
+
+# メンバー募集中
+
+---
+
+# 今日する話
+
+## はじめての Hello Python
+
+---
+
+# 今日する話
+
+- バージョン
+- 実行環境
+- ほかのLLとの違い
+
 ---
 
 # バージョン
 
 ## 2系と3系どっちをえらんだらいいの？
+
+- python 2.7
+- python 3.6
 
 ---
 
@@ -60,12 +85,88 @@ https://wiki.python.org/moin/Python2orPython3
 
 ---
 
+# 環境
+
+## brew
+
+```console
+$ brew install python3
+
+$ python3
+```
+
+---
+
+# 環境
+
+## pyenv
+
+```console
+$ brew install pyenv
+
+$ echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+
+$ pyenv install [version]
+```
+
+---
+
+# 環境
+
+## Docker
+
+```Dockerfile
+FROM python:latest
+```
+
+```console
+$ docker build .
+$ docker run -it --rm python3 /bin/bash
+```
+
+---
+
 # ほかのLLとの違い
+
+- ruby
+- perl
+- etc
 
 ## バイトコンパイル
 
 ---
 
+# python処理系
+
+1. コードを解析 |
+1. 仮想マシン用のバイトコードに変換 |
+1. 仮想マシンで実行 |
+
+---
+
 # バイトコンパイル
 
+## 事前にバイトコードにして保存しておける
+
+---
+
+# バイトコンパイル
+
+## 高速化できる！！
+
+---
+
+# まとめ
+
+- バージョンは3系を使おう |
+- Macなら簡単に使える |
+- バイトコードは速い |
+
+
+# さいごに
+
+```
+$ python3 -c 'print("Hello Python!")'
+Hello Python!
+```
 
