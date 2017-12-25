@@ -4,8 +4,6 @@
 
 # 自己紹介
 
-## 森崎 雅之
-
 ## @masayuki14
 
 ---
@@ -20,9 +18,9 @@
 
 ## スプーキーズ
 
-## スマホゲーム ✕ ボードゲーム
+## ソシャゲ ✕ ボドゲ
 
-<img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" />
+<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" /></a>
 
 ---
 
@@ -30,7 +28,7 @@
 
 ## メンバー募集中
 
-<img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" />
+<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" /></a>
 
 ---
 
