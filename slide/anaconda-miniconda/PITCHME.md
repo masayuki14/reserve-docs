@@ -133,6 +133,21 @@ https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html
 
 ---
 
+## チュートリアルをやってみる
+
+すでにPyPI上で利用可能なPythonモジュール用のcondaパッケージを構築する方法
+
+---
+
+## チュートリアルをやってみる
+
+### PyPI - the Python Package Index
+
+- pythonパッケージのリポジトリ
+- 登録すると `pip install XXX` でインストールできる
+
+---
+
 ## skelton コマンド実行
 
 ```
@@ -142,6 +157,8 @@ $ conda skeleton pypi pyinstrument
 
 `pyinstrument` ディレクトリが作られ `meta.yaml` ができた
 
+---
+
 ## build.sh bld.bat のダウンロード
 
 ```
@@ -150,6 +167,8 @@ $ curl -L 'https://conda.io/docs/_downloads/build1.sh' -o build.sh
 $ curl -L 'https://conda.io/docs/_downloads/bld.bat' -o bld.bat
 ```
 
+---
+
 ## conda-build でパッケージを作れる！？
 
 ```
@@ -157,8 +176,53 @@ $ cd ../
 $ conda-build pyinstrument
 ```
 
+---
+
 ## Error でた。。。
 
-`Troubleshooting a sample issue` の問題とはちがった。
+いろいろ探すも解決せず。。。
 
+---
+
+## Issue 報告
+
+同じような問題のIssueが立っていたので追記する。
+
+https://github.com/conda/conda-build/issues/2628#issuecomment-358836316
+
+---
+
+## 6分後回答きた
+
+`$ conda skeleton pypi --recursive pyinstrument`
+
+を使え！とのこと。
+
+---
+
+## やっぱりダメ。
+
+---
+
+## ということで今回はこれまで
+
+---
+
+## 今後のこと
+
+---
+
+## チュートリアルの突破を目指す
+
+---
+
+## チュートリアルのドキュメントを修正してPRだす
+
+---
+
+## マージされる
+
+---
+
+## 次の人がうまくいく
 

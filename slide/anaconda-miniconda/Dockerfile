@@ -8,3 +8,6 @@ RUN conda update -y conda
 
 RUN conda install -y conda-build
 RUN conda update  -y conda-build
+
+RUN apt-get update
+RUN apt-get install -y vim
