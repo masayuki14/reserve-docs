@@ -2,11 +2,11 @@
 
 ---
 
-# 自己紹介
+## 自己紹介
 
-## 森崎 雅之
+### 森崎 雅之
 
-## @masayuki14
+### @masayuki14
 
 - Twitter
 - GitHub
@@ -14,15 +14,17 @@
 
 ---
 
-# 自己紹介
+## 自己紹介
 
+- はんなりPython運営
+- Python初心者
 - 主夫
 - パートタイムプログラマ
 - スプーキーズアンバサダー
 
 ---
 
-## スプーキーズ
+## スプーキーズ@京都
 
 ## ソシャゲ ✕ ボドゲ
 
@@ -30,7 +32,24 @@
 
 ---
 
-## スプーキーズ
+## スプーキーズ@京都
+
+## ソシャゲ
+
+<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/works/games/kingdom.jpg" style="height: 300px" /></a>
+
+---
+
+## スプーキーズ@京都
+
+## ボドゲ
+
+<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/works/spookies/swap5.png" style="width: 300px" /></a>
+<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/works/spookies/sasuraba.png" style="width: 300px" /></a>
+
+---
+
+## スプーキーズ@京都
 
 ## メンバー募集中
 
@@ -46,42 +65,48 @@
 
 ## Anacondaとは
 
-Anaconda はデータサイエンス向けに作成された Pythonパッケージで、科学技術計算などを中心とした数多くのモジュールやツールが独自の形式で同梱されています。
+- Anaconda はデータサイエンス向けに作成されたPythonパッケージ
+- 科学技術計算など数多くのモジュールやツールが独自の形式で同梱されている
+
+---
 
 ### at macOS, Linux
 
-Anaconda を使わなくとも、通常の pip コマンドでも簡単に環境を構築できます。
+Anaconda を使わなくとも、通常の pip コマンドでも簡単に環境を構築できる
 
 ### at Windows
 
-簡単にインストール可能なモジュールが提供されていない環境で、機械学習などのためにPython を使用するなら、多くのモジュールがデフォルトでインストールされる Anaconda はとても便利です。
+機械学習などのためにPython を使用するなら、多くのモジュールがデフォルトでインストールされる Anaconda はとても便利
 
+
+---
 
 ### 注意点
 
-- Anaconda は一部に独自技術を使用しているため、公式パッケージでは一般的に使用されているツールなどでも、Anaconda では利用できないものがある
-- Anacondaは標準的な Pythonの 仮想環境 を利用できないため、専用の Conda コマンド を利用する必要がある
+- Anaconda は一部に独自技術を使用している
+    - 公式パッケージで利用できないものがある
+    - 標準的な Pythonの 仮想環境 を利用できない
+    - 専用の Conda コマンド を利用する必要がある
 
 ---
 
 ## Minicondaとは
 
-Anaconda の軽量版。Anaconda を最小限の構成にしたもので、同様に Conda コマンドをお利用する。
-
+Anaconda を最小限の構成にしたもの
 
 ---
 
 ## Conda コマンド
 
 - パッケージの管理
-    - pip の代わりに使います。
-    - pip でもインストールできます。
+    - pip の代わりに使う
+    - pip でもインストールできる
 
 - バージョンの管理
-    - pyenv の代わりにつかいます。
+    - pyenv の代わりにつかう
 
 - 仮想環境管理
-    - virtualenv/venv の代わりに使います。
+    - virtualenv/venv の代わりに使う
 
 ---
 
@@ -97,7 +122,7 @@ Anaconda の軽量版。Anaconda を最小限の構成にしたもので、同�
 
 ---
 
-## Minicondaをうごかしてみよう
+# Minicondaをうごかす
 
 ---
 
@@ -122,33 +147,33 @@ $ docker build -t miniconda .
 $ docker run -it --rm miniconda /bin/bash
 ```
 
-[how to install](https://conda.io/docs/user-guide/install/linux.html)
-
 ---
 
-## チュートリアルをやってみる
+# チュートリアルをやる
 
-[Building conda packages with conda skeleton](https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html)
 https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html
 
 ---
 
-## チュートリアルをやってみる
-
-すでにPyPI上で利用可能なPythonモジュール用のcondaパッケージを構築する方法
+<img src="./tutorial.png" style="" />
 
 ---
 
-## チュートリアルをやってみる
+## Building conda packages with conda skeleton
 
-### PyPI - the Python Package Index
+すでにPyPI上で利用可能なPythonモジュール用のcondaパッケージを構築する
+
+---
+
+## PyPI
+## the Python Package Index
 
 - pythonパッケージのリポジトリ
 - 登録すると `pip install XXX` でインストールできる
 
 ---
 
-## skelton コマンド実行
+## 1. skelton コマンド実行
 
 ```
 $ cd
@@ -159,7 +184,7 @@ $ conda skeleton pypi pyinstrument
 
 ---
 
-## build.sh bld.bat のダウンロード
+## 2. build.sh bld.bat のダウンロード
 
 ```
 $ cd pyinstrument
@@ -169,7 +194,7 @@ $ curl -L 'https://conda.io/docs/_downloads/bld.bat' -o bld.bat
 
 ---
 
-## conda-build でパッケージを作れる！？
+## conda-build でパッケージを作成
 
 ```
 $ cd ../
@@ -178,9 +203,21 @@ $ conda-build pyinstrument
 
 ---
 
-## Error でた。。。
+## Error でた
 
-いろいろ探すも解決せず。。。
+```
+$ conda-build pyinstrument
+Adding in variants from internal_defaults
+INFO:conda_build.variants:Adding in variants from internal_defaults
+Attempting to finalize metadata for pyinstrument
+INFO:conda_build.metadata:Attempting to finalize metadata for pyinstrument
+Solving environment: failed
+
+
+...
+```
+
+いろいろ探すも解決せず。
 
 ---
 
@@ -192,15 +229,27 @@ https://github.com/conda/conda-build/issues/2628#issuecomment-358836316
 
 ---
 
+## Issue 報告
+
+<img src="./issue.png" />
+
+---
+
+## 6分後回答きた
+
+<img src="./issue-response.png" />
+
+---
+
 ## 6分後回答きた
 
 `$ conda skeleton pypi --recursive pyinstrument`
 
-を使え！とのこと。
+を使え！とのこと
 
 ---
 
-## やっぱりダメ。
+## やっぱりダメ
 
 ---
 
@@ -226,3 +275,14 @@ https://github.com/conda/conda-build/issues/2628#issuecomment-358836316
 
 ## 次の人がうまくいく
 
+---
+
+## 今日は失敗談でした
+
+---
+
+## まだPythonのコードは書いてない
+
+---
+
+## ありがとうございました
