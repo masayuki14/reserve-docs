@@ -1,10 +1,11 @@
 # Anaconda と Miniconda
 
+## はんなりPython #2
+### 2018/01/19
+
 ---
 
 ## 自己紹介
-
-### 森崎 雅之
 
 ### @masayuki14
 
@@ -36,7 +37,8 @@
 
 ## ソシャゲ
 
-<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/works/games/kingdom.jpg" style="height: 300px" /></a>
+<a href="http://spookies.co.jp/works">スマホ向け向け超戦略的シミュレーションRPG<br />
+キングダム −英雄の系譜−</a>
 
 ---
 
@@ -44,8 +46,8 @@
 
 ## ボドゲ
 
-<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/works/spookies/swap5.png" style="width: 300px" /></a>
-<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/works/spookies/sasuraba.png" style="width: 300px" /></a>
+<a href="http://spookies.co.jp/works"><img src="http://spookies.co.jp/images/works/spookies/swap5.png" style="width: 300px" /></a>
+<a href="http://spookies.co.jp/works"><img src="http://spookies.co.jp/images/works/spookies/sasuraba.png" style="width: 300px" /></a>
 
 ---
 
@@ -54,6 +56,8 @@
 ## メンバー募集中
 
 <a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" /></a>
+
+http://spookies.co.jp/
 
 ---
 
