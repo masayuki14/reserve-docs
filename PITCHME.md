@@ -75,21 +75,58 @@ connpass 79323
 
 ---
 
-## Anacondaとは
+## 今日する話
 
-- Anaconda はデータサイエンス向けに作成されたPythonパッケージ
-- 科学技術計算など数多くのモジュールやツールが独自の形式で同梱されている
+### Jupyter Notebook とは
+### Jupyter Notebook を使おう
+### Pandasを使ってみよう
+### 身近なデータを可視化しよう
 
 ---
 
-### at macOS, Linux
+## Jupyter Notebook とは
 
-Anaconda を使わなくとも、通常の pip コマンドでも簡単に環境を構築できる
+### Project Jupyter
 
-### at Windows
+複数のプログラミング言語にまたがるインタラクティブコンピューティングのためのサービスを開発する
 
-機械学習などのためにPython を使用するなら、多くのモジュールがデフォルトでインストールされる Anaconda はとても便利
+---
 
+## Jupyter Notebook とは
+
+Project Jupyter のサービスの一つ
+
+ライブコード、方程式、可視化、テキストを含むドキュメントを作成して共有できるオープンソースのWebアプリケーション
+
+---
+
+## Jupyter Notebook を使おう
+
+### Dockerを使う
+
+```
+FROM python:latest
+
+# Install miniconda to /miniconda
+RUN curl -LO 'https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh'
+RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda
+ENV PATH=/miniconda/bin:${PATH}
+RUN conda update -y conda
+
+# install for jupyter notebook
+RUN conda install -y pandas matplotlib nb_conda
+RUN conda install -y pyyaml
+
+RUN mkdir -p /root/notebook
+WORKDIR /root/notebook
+
+CMD jupyter notebook --ip=0.0.0.0 --allow-root
+
+```
+@[1](ベースにpythonの最新バージョン)
+@[2-6](Minicondaをインストール)
+@[7-9](必要なライブラリをインストール)
+@[10-13](jupyterを実行してWebサーバーを起動)
 
 ---
 
