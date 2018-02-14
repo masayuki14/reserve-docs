@@ -1,4 +1,4 @@
-<div style="font-size: 3.3em;">
+<div style="font-size: 0.89em;">
 <h1>Jupyter Notebook 入門</h1>
 </div>
 
@@ -27,24 +27,25 @@ Follow me !!
 - コミュニティ
     - はんなりPython
     - OSS Gate
-
 - 主夫
-- パートタイムプログラマ
-- スプーキーズアンバサダー
+    - 兼 パートタイムプログラマ
+    - 兼 スプーキーズアンバサダー
 
 ---
 
 ## スプーキーズ@京都
 
-## ソシャゲ ✕ ボドゲ
+### ソーシャルゲーム ✕ ボードゲーム
 
-<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" /></a>
+<a href="http://spookies.co.jp/">
+<img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px; background-color: white;" />
+</a>
 
 ---
 
 ## スプーキーズ@京都
 
-## 社内勉強会やってます
+### 社内勉強会やってます
 
 - WebRTCを活用する
 - Docker勉強会
@@ -54,9 +55,9 @@ Follow me !!
 
 ## スプーキーズ@京都
 
-## エンジニア勉強会開催
-
 ### エンジニア勉強会 #1　3/23(金)
+
+connpass 79323
 
 ---
 
@@ -68,7 +69,9 @@ Follow me !!
 
 ## 今日する話
 
-## Jupyter Notebook 入門
+<div style="font-size: 0.89em;">
+<h1>Jupyter Notebook 入門</h1>
+</div>
 
 ---
 
