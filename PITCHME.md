@@ -1,6 +1,9 @@
+<div style="font-size: 3.3em;">
 # Jupyter Notebook 入門
+</div>
 
 ## はんなりPython #3
+
 ### 2018/02/16
 
 ---
@@ -11,9 +14,9 @@
 
 ### @masayuki14
 
-<img src="./twitter.png" />
-<img src="./github.png" />
-<img src="./hatena.png" />
+<img src="./twitter.png" style="width: 180px; background-color: white;" />
+<img src="./github.png"  style="width: 180px; background-color: white;" />
+<img src="./hatena.png"  style="width: 180px; background-color: white;" />
 
 Follow me !!
 
