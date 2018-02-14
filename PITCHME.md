@@ -78,8 +78,8 @@ connpass 79323
 ## 今日する話
 
 ### Jupyter Notebook とは
-### Jupyter Notebook を使おう
-### Pandasを使ってみよう
+### Use Jupyter Notebook
+### Use Pandas
 ### 身近なデータを可視化しよう
 
 ---
@@ -100,9 +100,9 @@ Project Jupyter のサービスの一つ
 
 ---
 
-## Jupyter Notebook を使おう
+## Use Jupyter Notebook
 
-### Dockerを使う
+### by Docker
 
 ```
 FROM python:latest
@@ -124,9 +124,9 @@ CMD jupyter notebook --ip=0.0.0.0 --allow-root
 
 ```
 @[1](ベースにpythonの最新バージョン)
-@[2-6](Minicondaをインストール)
-@[7-9](必要なライブラリをインストール)
-@[10-13](jupyterを実行してWebサーバーを起動)
+@[3-7](Minicondaをインストール)
+@[9-11](必要なライブラリをインストール)
+@[12-15](jupyterを実行してWebサーバーを起動)
 
 ---
 
