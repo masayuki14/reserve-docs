@@ -121,48 +121,110 @@ RUN mkdir -p /root/notebook
 WORKDIR /root/notebook
 
 CMD jupyter notebook --ip=0.0.0.0 --allow-root
-
 ```
 @[1](ベースにpythonの最新バージョン)
 @[3-7](Minicondaをインストール)
 @[9-11](必要なライブラリをインストール)
-@[12-15](jupyterを実行してWebサーバーを起動)
+@[13-16](jupyterを実行してWebサーバーを起動)
 
 ---
 
-### 注意点
+## Use Jupyter Notebook
 
-- Anaconda は一部に独自技術を使用している
-    - 公式パッケージで利用できないものがある
-    - 標準的な Pythonの 仮想環境 を利用できない
-    - 専用の Conda コマンド を利用する必要がある
+Build image
 
----
+```
+$ docker build -t jupyter .
+```
 
-## Minicondaとは
+Run docker
 
-Anaconda を最小限の構成にしたもの
-
----
-
-## Conda コマンド
-
-- パッケージの管理
-    - pip の代わりに使う
-    - pip でもインストールできる
-
-- バージョンの管理
-    - pyenv の代わりにつかう
-
-- 仮想環境管理
-    - virtualenv/venv の代わりに使う
+```
+$ docker run -it --rm -v $(pwd)/notebook:/root/notebook -p 80:8888 jupyter
+```
 
 ---
 
-# Conda 最高
+## Use Jupyter Notebook
+
+```
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://0.0.0.0:8888/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
+```
 
 ---
 
+## Use Jupyter Notebook
+
+http://localhost/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
+
+にアクセス！！
+
+
+---
+
+## Use Jupyter Notebook
+
+<img src="jupyter_home.png" />
+
+---
+
+## Use Jupyter Notebook
+
+### Hello world
+
+```
+def hello():
+    return 'Hello Jupyter.'
+
+hello()
+```
+
+```
+'Hello Jupyter.'
+```
+
+---
+
+## Use Jupyter Notebook
+
+### グラフ表示
+
+```
+# グラフ表示を有効化
+%matplotlib inline
+import pandas as pd
+
+df = pd.DataFrame([1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765])
+df.plot()
+```
+
+<img src="fibo_graph.png" />
+
+---
+
+## Use Jupyter Notebook
+
+### グラフ表示
+
+```
+fibo_pd.describe()
+```
+
+```
+count	20.000000
+mean	885.500000
+std	1752.704452
+min	1.000000
+25%	7.250000
+50%	72.000000
+75%	704.250000
+max	6765.000000
+```
+
+
+---
 ## まとめ
 
 - Minicondaの方が軽量
