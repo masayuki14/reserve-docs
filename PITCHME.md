@@ -249,8 +249,6 @@ https://github.com/masayuki14/reserve-docs/blob/master/slide/jupyter-notebook/no
 
 ## Use Pandas
 
-### データフレーム
-
 - 1次元データ構造のシリーズ（Series）
 - 2次元データ構造のデータフレーム（DataFrame）
 
@@ -305,3 +303,178 @@ Out[2]:
 2   grape    290
 3  banana    100
 ```
+
+---
+
+## Use Pandas
+
+### ディクショナリで配列を渡す
+
+```
+In [3]: df = pd.DataFrame({
+   ...:     'name': ['apple', 'orange', 'pear', 'peach'],
+   ...:     'price': [120, 150, 230, 360],
+   ...:     'order': [3, 8, 4, 5]
+   ...: })
+   ...: df
+
+Out[3]:
+     name  order  price
+0   apple      3    120
+1  orange      8    150
+2    pear      4    230
+3   peach      5    360
+```
+
+---
+
+
+## Use Pandas
+
+### 列の追加
+
+```
+In [4]: df['color'] = ['red', 'orange', 'green', 'pink']
+   ...: df['total'] = df['order'] * df['price']
+   ...: df
+
+Out[4]:
+     name  order  price   color  total
+0   apple      3    120     red    360
+1  orange      8    150  orange   1200
+2    pear      4    230   green    920
+3   peach      5    360    pink   1800
+
+```
+
+---
+
+## Use Pandas
+
+### インデックスの追加
+
+```
+In [5]: df.index = ['Apple', 'Orange', 'Pear', 'Peach']
+   ...: df
+
+Out[5]:
+          name  order  price   color  total
+Apple    apple      3    120     red    360
+Orange  orange      8    150  orange   1200
+Pear      pear      4    230   green    920
+Peach    peach      5    360    pink   1800
+```
+
+---
+
+## Use Pandas
+
+### 列の選択
+
+```
+In [6]: df['price']
+
+Out[6]:
+Apple     120
+Orange    150
+Pear      230
+Peach     360
+Name: price, dtype: int64
+```
+
+---
+
+## Use Pandas
+
+### 列の選択（複数）
+
+```
+In [7]: df[['price', 'color']]
+
+Out[7]:
+        price   color
+Apple     120     red
+Orange    150  orange
+Pear      230   green
+Peach     360    pink
+```
+
+---
+
+## Use Pandas
+
+### head, tail
+
+```
+In [8]: df.head(2)
+
+Out[8]:
+          name  order  price   color  total
+Apple    apple      3    120     red    360
+Orange  orange      8    150  orange   1200
+```
+
+---
+
+## Use Pandas
+
+### インデックス指定
+
+```
+In [9]: # df.loc[['Apple', 'Pear']]
+In [9]: df[1:3]
+
+Out[9]:
+          name  order  price   color  total
+Orange  orange      8    150  orange   1200
+Pear      pear      4    230   green    920
+```
+
+---
+
+## Use Pandas
+
+### 条件による指定
+
+```
+In [10]: df[df.price > 200]
+
+Out[10]:
+        name  order  price  color  total
+Pear    pear      4    230  green    920
+Peach  peach      5    360   pink   1800
+```
+
+---
+
+## Use Pandas
+
+### 
+
+---
+
+## Use Pandas
+
+### 
+
+---
+
+## Use Pandas
+
+### 
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
