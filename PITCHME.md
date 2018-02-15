@@ -339,13 +339,15 @@ Out[3]:
 
 ### 列の追加
 
-```python
+```
 In [4]: df['color'] = ['red', 'orange', 'green', 'pink']
    ...: df['total'] = df['order'] * df['price']
    ...: df
+   ...:
 ```
 
-```python
+```
+
 Out[4]:
      name  order  price   color  total
 0   apple      3    120     red    360
