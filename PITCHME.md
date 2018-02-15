@@ -275,7 +275,9 @@ In [1]: import pandas as pd
    ...: df = pd.DataFrame([1,2,3],
    ...:                  columns=['value'])
    ...: df
+```
 
+```
 Out[1]:
    value
 0      1
@@ -295,7 +297,9 @@ In [2]: df = pd.DataFrame([
    ...:     columns=['name', 'price']
    ...: )
    ...: df
+```
 
+```
 Out[2]:
      name  price
 0   apple    100
@@ -317,7 +321,9 @@ In [3]: df = pd.DataFrame({
    ...:     'order': [3, 8, 4, 5]
    ...: })
    ...: df
+```
 
+```
 Out[3]:
      name  order  price
 0   apple      3    120
@@ -337,14 +343,15 @@ Out[3]:
 In [4]: df['color'] = ['red', 'orange', 'green', 'pink']
    ...: df['total'] = df['order'] * df['price']
    ...: df
+```
 
+```
 Out[4]:
      name  order  price   color  total
 0   apple      3    120     red    360
 1  orange      8    150  orange   1200
 2    pear      4    230   green    920
 3   peach      5    360    pink   1800
-
 ```
 
 ---
@@ -356,7 +363,9 @@ Out[4]:
 ```
 In [5]: df.index = ['Apple', 'Orange', 'Pear', 'Peach']
    ...: df
+```
 
+```
 Out[5]:
           name  order  price   color  total
 Apple    apple      3    120     red    360
@@ -373,7 +382,9 @@ Peach    peach      5    360    pink   1800
 
 ```
 In [6]: df['price']
+```
 
+```
 Out[6]:
 Apple     120
 Orange    150
@@ -390,7 +401,9 @@ Name: price, dtype: int64
 
 ```
 In [7]: df[['price', 'color']]
+```
 
+```
 Out[7]:
         price   color
 Apple     120     red
@@ -407,7 +420,9 @@ Peach     360    pink
 
 ```
 In [8]: df.head(2)
+```
 
+```
 Out[8]:
           name  order  price   color  total
 Apple    apple      3    120     red    360
@@ -422,6 +437,9 @@ Orange  orange      8    150  orange   1200
 
 ```
 In [9]: # df.loc[['Apple', 'Pear']]
+```
+
+```
 In [9]: df[1:3]
 
 Out[9]:
@@ -438,7 +456,9 @@ Pear      pear      4    230   green    920
 
 ```
 In [10]: df[df.price > 200]
+```
 
+```
 Out[10]:
         name  order  price  color  total
 Pear    pear      4    230  green    920
