@@ -86,6 +86,10 @@ connpass 79323
 
 ## Jupyter Notebook とは
 
+---
+
+## Jupyter Notebook とは
+
 ### Project Jupyter
 
 複数のプログラミング言語にまたがるインタラクティブコンピューティングのためのサービスを開発する
@@ -97,6 +101,10 @@ connpass 79323
 Project Jupyter のサービスの一つ
 
 ライブコード、方程式、可視化、テキストを含むドキュメントを作成して共有できるオープンソースのWebアプリケーション
+
+---
+
+## Use Jupyter Notebook
 
 ---
 
@@ -173,14 +181,14 @@ http://localhost/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
 
 ### Hello world
 
-```
+```python
 def hello():
     return 'Hello Jupyter.'
 
 hello()
 ```
 
-```
+```python
 'Hello Jupyter.'
 ```
 
@@ -190,7 +198,7 @@ hello()
 
 ### グラフ表示
 
-```
+```python
 # グラフ表示を有効化
 %matplotlib inline
 import pandas as pd
@@ -207,7 +215,7 @@ df.plot()
 
 ### グラフ表示
 
-```
+```python
 fibo_pd.describe()
 ```
 
@@ -225,167 +233,75 @@ fibo_pd.describe()
 
 ---
 
-# Minicondaをうごかす
+## Use Jupyter Notebook
+
+### Notebook URL
+
+https://github.com/masayuki14/reserve-docs/blob/master/slide/jupyter-notebook/notebook/intro.ipynb
+
+保存した `ipynb` をGitHubにPushすると表示できる。
 
 ---
 
-## Dockerで動かす
-
-```
-# Dockerfile
-FROM python:latest
-
-# Install miniconda to /miniconda
-RUN curl -LO 'https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh'
-RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda
-ENV PATH=/miniconda/bin:${PATH}
-RUN conda update -y conda
-
-RUN conda install -y conda-build
-RUN conda update  -y conda-build
-```
-
-```
-$ docker build -t miniconda .
-$ docker run -it --rm miniconda /bin/bash
-```
+## Use Pandas
 
 ---
 
-# チュートリアルをやる
+## Use Pandas
 
-https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html
+### データフレーム
 
----
-
-<img src="./tutorial.png" style="" />
-
----
-
-## Building conda packages with conda skeleton
-
-すでにPyPI上で利用可能なPythonモジュール用のcondaパッケージを構築する
+- 1次元データ構造のシリーズ（Series）
+- 2次元データ構造のデータフレーム（DataFrame）
 
 ---
 
-## PyPI
-## the Python Package Index
+## Use Pandas
 
-- pythonパッケージのリポジトリ
-- 登録すると `pip install XXX` でインストールできる
+Pandasをつかおう
 
----
-
-## 1. skelton コマンド実行
-
-```
-$ cd
-$ conda skeleton pypi pyinstrument
-```
-
-`pyinstrument` ディレクトリが作られ `meta.yaml` ができた
-
----
-
-## 2. build.sh bld.bat のダウンロード
-
-```
-$ cd pyinstrument
-$ curl -L 'https://conda.io/docs/_downloads/build1.sh' -o build.sh
-$ curl -L 'https://conda.io/docs/_downloads/bld.bat' -o bld.bat
+```python
+import pandas as pd
 ```
 
 ---
 
-## conda-build でパッケージを作成
+## Use Pandas
+
+### データフレームの基本的な使い方
 
 ```
-$ cd ../
-$ conda-build pyinstrument
+In [1]: import pandas as pd
+   ...:
+   ...: # columnsオプションで列名を指定
+   ...: df = pd.DataFrame([1,2,3],
+   ...:                  columns=['value'])
+   ...: df
+
+Out[1]:
+   value
+0      1
+1      2
+2      3
 ```
 
 ---
 
-## Error でた
+## Use Pandas
+
+### タプルで配列を渡す
 
 ```
-$ conda-build pyinstrument
-Adding in variants from internal_defaults
-INFO:conda_build.variants:Adding in variants from internal_defaults
-Attempting to finalize metadata for pyinstrument
-INFO:conda_build.metadata:Attempting to finalize metadata for pyinstrument
-Solving environment: failed
+In [2]: df = pd.DataFrame([
+   ...:     ('apple', 100), ('oragne', 230), ('grape', 290), ('banana', 100)],
+   ...:     columns=['name', 'price']
+   ...: )
+   ...: df
 
-
-...
+Out[2]:
+     name  price
+0   apple    100
+1  oragne    230
+2   grape    290
+3  banana    100
 ```
-
-いろいろ探すも解決せず。
-
----
-
-## Issue 報告
-
-同じような問題のIssueが立っていたので追記する。
-
-https://github.com/conda/conda-build/issues/2628#issuecomment-358836316
-
----
-
-## Issue 報告
-
-<img src="./issue.png" />
-
----
-
-## 6分後回答きた
-
-<img src="./issue-response.png" />
-
----
-
-## 6分後回答きた
-
-`$ conda skeleton pypi --recursive pyinstrument`
-
-を使え！とのこと
-
----
-
-## やっぱりダメ
-
----
-
-## ということで今回はこれまで
-
----
-
-## 今後のこと
-
----
-
-## チュートリアルの突破を目指す
-
----
-
-## チュートリアルのドキュメントを修正してPRだす
-
----
-
-## マージされる
-
----
-
-## 次の人がうまくいく
-
----
-
-## 今日は失敗談でした
-
----
-
-## まだPythonのコードは書いてない
-
----
-
-## ありがとうございました
