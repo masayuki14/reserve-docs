@@ -268,7 +268,7 @@ import pandas as pd
 
 ### データフレームの基本的な使い方
 
-```
+```python
 In [1]: import pandas as pd
    ...:
    ...: # columnsオプションで列名を指定
@@ -277,7 +277,7 @@ In [1]: import pandas as pd
    ...: df
 ```
 
-```
+```python
 Out[1]:
    value
 0      1
@@ -291,7 +291,7 @@ Out[1]:
 
 ### タプルで配列を渡す
 
-```
+```python
 In [2]: df = pd.DataFrame([
    ...:     ('apple', 100), ('oragne', 230), ('grape', 290), ('banana', 100)],
    ...:     columns=['name', 'price']
@@ -299,7 +299,7 @@ In [2]: df = pd.DataFrame([
    ...: df
 ```
 
-```
+```python
 Out[2]:
      name  price
 0   apple    100
@@ -314,7 +314,7 @@ Out[2]:
 
 ### ディクショナリで配列を渡す
 
-```
+```python
 In [3]: df = pd.DataFrame({
    ...:     'name': ['apple', 'orange', 'pear', 'peach'],
    ...:     'price': [120, 150, 230, 360],
@@ -323,7 +323,7 @@ In [3]: df = pd.DataFrame({
    ...: df
 ```
 
-```
+```python
 Out[3]:
      name  order  price
 0   apple      3    120
@@ -339,15 +339,13 @@ Out[3]:
 
 ### 列の追加
 
-```
+```python
 In [4]: df['color'] = ['red', 'orange', 'green', 'pink']
    ...: df['total'] = df['order'] * df['price']
    ...: df
-   ...:
 ```
 
-```
-
+```python
 Out[4]:
      name  order  price   color  total
 0   apple      3    120     red    360
@@ -362,12 +360,12 @@ Out[4]:
 
 ### インデックスの追加
 
-```
+```python
 In [5]: df.index = ['Apple', 'Orange', 'Pear', 'Peach']
    ...: df
 ```
 
-```
+```python
 Out[5]:
           name  order  price   color  total
 Apple    apple      3    120     red    360
@@ -382,11 +380,11 @@ Peach    peach      5    360    pink   1800
 
 ### 列の選択
 
-```
+```python
 In [6]: df['price']
 ```
 
-```
+```python
 Out[6]:
 Apple     120
 Orange    150
@@ -401,11 +399,11 @@ Name: price, dtype: int64
 
 ### 列の選択（複数）
 
-```
+```python
 In [7]: df[['price', 'color']]
 ```
 
-```
+```python
 Out[7]:
         price   color
 Apple     120     red
@@ -420,11 +418,11 @@ Peach     360    pink
 
 ### head, tail
 
-```
+```python
 In [8]: df.head(2)
 ```
 
-```
+```python
 Out[8]:
           name  order  price   color  total
 Apple    apple      3    120     red    360
@@ -437,11 +435,11 @@ Orange  orange      8    150  orange   1200
 
 ### インデックス指定
 
-```
+```python
 In [9]: # df.loc[['Apple', 'Pear']]
 ```
 
-```
+```python
 In [9]: df[1:3]
 
 Out[9]:
@@ -456,11 +454,11 @@ Pear      pear      4    230   green    920
 
 ### 条件による指定
 
-```
+```python
 In [10]: df[df.price > 200]
 ```
 
-```
+```python
 Out[10]:
         name  order  price  color  total
 Pear    pear      4    230  green    920
