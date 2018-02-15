@@ -148,9 +148,9 @@ $ docker run -it --rm -v $(pwd)/notebook:/root/notebook -p 80:8888 jupyter
 ## Use Jupyter Notebook
 
 ```
-    Copy/paste this URL into your browser when you connect for the first time,
-    to login with a token:
-        http://0.0.0.0:8888/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
+Copy/paste this URL into your browser when you connect for the first time,
+to login with a token:
+    http://0.0.0.0:8888/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
 ```
 
 ---
@@ -160,7 +160,6 @@ $ docker run -it --rm -v $(pwd)/notebook:/root/notebook -p 80:8888 jupyter
 http://localhost/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
 
 にアクセス！！
-
 
 ---
 
@@ -200,7 +199,7 @@ df = pd.DataFrame([1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181
 df.plot()
 ```
 
-<img src="fibo_graph.png" />
+<img src="fibo_graph.png" style="background-color: white" />
 
 ---
 
@@ -212,24 +211,17 @@ df.plot()
 fibo_pd.describe()
 ```
 
-```
-count	20.000000
-mean	885.500000
-std	1752.704452
-min	1.000000
-25%	7.250000
-50%	72.000000
-75%	704.250000
-max	6765.000000
-```
-
+<img src="fibo_describe.png" style="background-color: white" />
 
 ---
-## まとめ
 
-- Minicondaの方が軽量
-- データサイエンスやるならMinicondaを使う
-- なれないうちは `Conda` コマンドだけ使う
+## Use Jupyter Notebook
+
+### Markdown
+
+- Markdownでメモなどを残せる
+
+- LaTeXで数式を書ける
 
 ---
 
