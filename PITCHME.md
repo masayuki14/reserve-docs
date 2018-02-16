@@ -502,8 +502,8 @@ Peach  peach      5    360   pink   1800
 
 ---
 
-<img src="./IMG_3786.JPG" />
-<img src="./IMG_3787.JPG" />
+<img src="./IMG_3786.JPG" style="width: 30%" />
+<img src="./IMG_3787.JPG" style="width: 30%" />
 
 
 ---
@@ -558,3 +558,14 @@ http://www.data.jma.go.jp/gmd/risk/obsdl/index.php
 
 <img src="2018_snow.png" style="background-color: white" />
 
+---
+
+## まとめ
+
+Jupyter Notebook を使うことは
+
+データサイエンスのはじめの一歩
+
+---
+
+## ありがとうございました
