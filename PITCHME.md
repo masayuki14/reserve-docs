@@ -57,7 +57,7 @@ Follow me !!
 
 ### エンジニア勉強会 #1　3/23(金)
 
-connpass 79323
+[connpass 79323](https://connpass.com/event/79323/)
 
 ---
 
@@ -80,7 +80,7 @@ connpass 79323
 ### Jupyter Notebook とは
 ### Use Jupyter Notebook
 ### Use Pandas
-### 身近なデータを可視化しよう
+### 身近なデータを可視化
 
 ---
 
@@ -98,7 +98,7 @@ connpass 79323
 
 ## Jupyter Notebook とは
 
-Project Jupyter のサービスの一つ
+### Project Jupyter のサービスの一つ
 
 ライブコード、方程式、可視化、テキストを含むドキュメントを作成して共有できるオープンソースのWebアプリケーション
 
@@ -473,54 +473,48 @@ Peach  peach      5    360   pink   1800
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
-Pandas でデータ操作しててもつまらない
+### Pandas でデータ操作だけじゃつまらない
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
 ### そうだ可視化しよう
 
 ---
 
-## 身近なデータを可視化しよう
-
-### グラフを書いてみよう
-
----
-
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
 ### グラフを書いてみよう
 
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
 ### 今年は雪が多い
 
 ---
 
-<img src="IMG_3786.PNG" />
-<img src="IMG_3787.PNG" />
+<img src="./IMG_3786.JPG" />
+<img src="./IMG_3787.JPG" />
 
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
 ### 昭和38年、昭和56年と比較する
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
 ### 気象庁の観測データをダウンロード
 
@@ -528,31 +522,39 @@ http://www.data.jma.go.jp/gmd/risk/obsdl/index.php
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
 ### 最深積雪をグラフにする
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
-<img src="monthly_snow.png">
+### 年別の最深積雪
 
----
-
-## 身近なデータを可視化しよう
-
-<img src="1963_snow.png">
+<img src="monthly_snow.png" style="background-color: white" />
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
-<img src="1981_snow.png">
+### 昭和38年 (1963年)
+
+<img src="1963_snow.png" style="background-color: white" />
 
 ---
 
-## 身近なデータを可視化しよう
+## 身近なデータを可視化
 
-<img src="2018_snow.png">
+### 昭和56年 (1981年)
+
+<img src="1981_snow.png" style="background-color: white" />
+
+---
+
+## 身近なデータを可視化
+
+### 平成30年 (2018年)
+
+<img src="2018_snow.png" style="background-color: white" />
 
