@@ -1,6 +1,9 @@
-# Jupyter Notebook 入門
+<div style="font-size: 0.89em;">
+<h1>Jupyter Notebook 入門</h1>
+</div>
 
 ## はんなりPython #3
+
 ### 2018/02/16
 
 ---
@@ -11,9 +14,9 @@
 
 ### @masayuki14
 
-<img src="./twitter.png" />
-<img src="./github.png" />
-<img src="./hatena.png" />
+<img src="./twitter.png" style="width: 180px; background-color: white;" />
+<img src="./github.png"  style="width: 180px; background-color: white;" />
+<img src="./hatena.png"  style="width: 180px; background-color: white;" />
 
 Follow me !!
 
@@ -24,24 +27,25 @@ Follow me !!
 - コミュニティ
     - はんなりPython
     - OSS Gate
-
 - 主夫
-- パートタイムプログラマ
-- スプーキーズアンバサダー
+    - 兼 パートタイムプログラマ
+    - 兼 スプーキーズアンバサダー
 
 ---
 
 ## スプーキーズ@京都
 
-## ソシャゲ ✕ ボドゲ
+### ソーシャルゲーム ✕ ボードゲーム
 
-<a href="http://spookies.co.jp/"><img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px" /></a>
+<a href="http://spookies.co.jp/">
+<img src="http://spookies.co.jp/images/spookies_logo.png" style="width: 300px; background-color: white;" />
+</a>
 
 ---
 
 ## スプーキーズ@京都
 
-## 社内勉強会やってます
+### 社内勉強会やってます
 
 - WebRTCを活用する
 - Docker勉強会
@@ -51,9 +55,9 @@ Follow me !!
 
 ## スプーキーズ@京都
 
-## エンジニア勉強会開催
-
 ### エンジニア勉強会 #1　3/23(金)
+
+[connpass 79323](https://connpass.com/event/79323/)
 
 ---
 
@@ -65,77 +69,50 @@ Follow me !!
 
 ## 今日する話
 
-## Jupyter Notebook 入門
+<div style="font-size: 0.89em;">
+<h1>Jupyter Notebook 入門</h1>
+</div>
 
 ---
 
-## Anacondaとは
+## 今日する話
 
-- Anaconda はデータサイエンス向けに作成されたPythonパッケージ
-- 科学技術計算など数多くのモジュールやツールが独自の形式で同梱されている
-
----
-
-### at macOS, Linux
-
-Anaconda を使わなくとも、通常の pip コマンドでも簡単に環境を構築できる
-
-### at Windows
-
-機械学習などのためにPython を使用するなら、多くのモジュールがデフォルトでインストールされる Anaconda はとても便利
-
+### Jupyter Notebook とは
+### Use Jupyter Notebook
+### Use Pandas
+### 身近なデータを可視化
 
 ---
 
-### 注意点
-
-- Anaconda は一部に独自技術を使用している
-    - 公式パッケージで利用できないものがある
-    - 標準的な Pythonの 仮想環境 を利用できない
-    - 専用の Conda コマンド を利用する必要がある
+## Jupyter Notebook とは
 
 ---
 
-## Minicondaとは
+## Jupyter Notebook とは
 
-Anaconda を最小限の構成にしたもの
+### Project Jupyter
 
----
-
-## Conda コマンド
-
-- パッケージの管理
-    - pip の代わりに使う
-    - pip でもインストールできる
-
-- バージョンの管理
-    - pyenv の代わりにつかう
-
-- 仮想環境管理
-    - virtualenv/venv の代わりに使う
+複数のプログラミング言語にまたがるインタラクティブコンピューティングのためのサービスを開発する
 
 ---
 
-# Conda 最高
+## Jupyter Notebook とは
+
+### Project Jupyter のサービスの一つ
+
+ライブコード、方程式、可視化、テキストを含むドキュメントを作成して共有できるオープンソースのWebアプリケーション
 
 ---
 
-## まとめ
-
-- Minicondaの方が軽量
-- データサイエンスやるならMinicondaを使う
-- なれないうちは `Conda` コマンドだけ使う
+## Use Jupyter Notebook
 
 ---
 
-# Minicondaをうごかす
+## Use Jupyter Notebook
 
----
-
-## Dockerで動かす
+### by Docker
 
 ```
-# Dockerfile
 FROM python:latest
 
 # Install miniconda to /miniconda
@@ -144,150 +121,450 @@ RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda
 ENV PATH=/miniconda/bin:${PATH}
 RUN conda update -y conda
 
-RUN conda install -y conda-build
-RUN conda update  -y conda-build
-```
+# install for jupyter notebook
+RUN conda install -y pandas matplotlib nb_conda
+RUN conda install -y pyyaml
 
+RUN mkdir -p /root/notebook
+WORKDIR /root/notebook
+
+CMD jupyter notebook --ip=0.0.0.0 --allow-root
 ```
-$ docker build -t miniconda .
-$ docker run -it --rm miniconda /bin/bash
-```
+@[1](ベースにpythonの最新バージョン)
+@[3-7](Minicondaをインストール)
+@[9-11](必要なライブラリをインストール)
+@[13-16](jupyterを実行してWebサーバーを起動)
 
 ---
 
-# チュートリアルをやる
+## Use Jupyter Notebook
 
-https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html
-
----
-
-<img src="./tutorial.png" style="" />
-
----
-
-## Building conda packages with conda skeleton
-
-すでにPyPI上で利用可能なPythonモジュール用のcondaパッケージを構築する
-
----
-
-## PyPI
-## the Python Package Index
-
-- pythonパッケージのリポジトリ
-- 登録すると `pip install XXX` でインストールできる
-
----
-
-## 1. skelton コマンド実行
+Build image
 
 ```
-$ cd
-$ conda skeleton pypi pyinstrument
+$ docker build -t jupyter .
 ```
 
-`pyinstrument` ディレクトリが作られ `meta.yaml` ができた
-
----
-
-## 2. build.sh bld.bat のダウンロード
+Run docker
 
 ```
-$ cd pyinstrument
-$ curl -L 'https://conda.io/docs/_downloads/build1.sh' -o build.sh
-$ curl -L 'https://conda.io/docs/_downloads/bld.bat' -o bld.bat
+$ docker run -it --rm -v $(pwd)/notebook:/root/notebook -p 80:8888 jupyter
 ```
 
 ---
 
-## conda-build でパッケージを作成
+## Use Jupyter Notebook
 
 ```
-$ cd ../
-$ conda-build pyinstrument
+Copy/paste this URL into your browser when you connect for the first time,
+to login with a token:
+    http://0.0.0.0:8888/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
 ```
 
 ---
 
-## Error でた
+## Use Jupyter Notebook
 
+http://localhost/?token=ba4fc6de0d99161f5e144ad4c1167ebf074ddc29b916065f
+
+にアクセス！！
+
+---
+
+## Use Jupyter Notebook
+
+<img src="jupyter_home.png" />
+
+---
+
+## Use Jupyter Notebook
+
+### Hello world
+
+```python
+def hello():
+    return 'Hello Jupyter.'
+
+hello()
 ```
-$ conda-build pyinstrument
-Adding in variants from internal_defaults
-INFO:conda_build.variants:Adding in variants from internal_defaults
-Attempting to finalize metadata for pyinstrument
-INFO:conda_build.metadata:Attempting to finalize metadata for pyinstrument
-Solving environment: failed
 
-
-...
+```python
+'Hello Jupyter.'
 ```
 
-いろいろ探すも解決せず。
+---
+
+## Use Jupyter Notebook
+
+### グラフ表示
+
+```python
+# グラフ表示を有効化
+%matplotlib inline
+import pandas as pd
+
+df = pd.DataFrame([1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765])
+df.plot()
+```
+
+<img src="fibo_graph.png" style="background-color: white" />
 
 ---
 
-## Issue 報告
+## Use Jupyter Notebook
 
-同じような問題のIssueが立っていたので追記する。
+### グラフ表示
 
-https://github.com/conda/conda-build/issues/2628#issuecomment-358836316
+```python
+fibo_pd.describe()
+```
 
----
-
-## Issue 報告
-
-<img src="./issue.png" />
+<img src="fibo_describe.png" style="background-color: white" />
 
 ---
 
-## 6分後回答きた
+## Use Jupyter Notebook
 
-<img src="./issue-response.png" />
+### Markdown
 
----
+- Markdownでメモなどを残せる
 
-## 6分後回答きた
-
-`$ conda skeleton pypi --recursive pyinstrument`
-
-を使え！とのこと
+- LaTeXで数式を書ける
 
 ---
 
-## やっぱりダメ
+## Use Jupyter Notebook
+
+### Notebook URL
+
+https://github.com/masayuki14/reserve-docs/blob/master/slide/jupyter-notebook/notebook/intro.ipynb
+
+保存した `ipynb` をGitHubにPushすると表示できる。
 
 ---
 
-## ということで今回はこれまで
+## Use Pandas
 
 ---
 
-## 今後のこと
+## Use Pandas
+
+- 1次元データ構造のシリーズ（Series）
+- 2次元データ構造のデータフレーム（DataFrame）
 
 ---
 
-## チュートリアルの突破を目指す
+## Use Pandas
+
+Pandasをつかおう
+
+```python
+import pandas as pd
+```
 
 ---
 
-## チュートリアルのドキュメントを修正してPRだす
+## Use Pandas
+
+### データフレームの基本的な使い方
+
+```python
+In [1]: import pandas as pd
+   ...:
+   ...: # columnsオプションで列名を指定
+   ...: df = pd.DataFrame([1,2,3],
+   ...:                  columns=['value'])
+   ...: df
+```
+
+```python
+Out[1]:
+   value
+0      1
+1      2
+2      3
+```
 
 ---
 
-## マージされる
+## Use Pandas
+
+### タプルで配列を渡す
+
+```python
+In [2]: df = pd.DataFrame([
+   ...:     ('apple', 100), ('oragne', 230), ('grape', 290), ('banana', 100)],
+   ...:     columns=['name', 'price']
+   ...: )
+   ...: df
+```
+
+```python
+Out[2]:
+     name  price
+0   apple    100
+1  oragne    230
+2   grape    290
+3  banana    100
+```
 
 ---
 
-## 次の人がうまくいく
+## Use Pandas
+
+### ディクショナリで配列を渡す
+
+```python
+In [3]: df = pd.DataFrame({
+   ...:     'name': ['apple', 'orange', 'pear', 'peach'],
+   ...:     'price': [120, 150, 230, 360],
+   ...:     'order': [3, 8, 4, 5]
+   ...: })
+   ...: df
+```
+
+```python
+Out[3]:
+     name  order  price
+0   apple      3    120
+1  orange      8    150
+2    pear      4    230
+3   peach      5    360
+```
 
 ---
 
-## 今日は失敗談でした
+
+## Use Pandas
+
+### 列の追加
+
+```python
+In [4]: df['color'] = ['red', 'orange', 'green', 'pink']
+   ...: df['total'] = df['order'] * df['price']
+   ...: df
+```
+
+```python
+Out[4]:
+     name  order  price   color  total
+0   apple      3    120     red    360
+1  orange      8    150  orange   1200
+2    pear      4    230   green    920
+3   peach      5    360    pink   1800
+```
 
 ---
 
-## まだPythonのコードは書いてない
+## Use Pandas
+
+### インデックスの追加
+
+```python
+In [5]: df.index = ['Apple', 'Orange', 'Pear', 'Peach']
+   ...: df
+```
+
+```python
+Out[5]:
+          name  order  price   color  total
+Apple    apple      3    120     red    360
+Orange  orange      8    150  orange   1200
+Pear      pear      4    230   green    920
+Peach    peach      5    360    pink   1800
+```
+
+---
+
+## Use Pandas
+
+### 列の選択
+
+```python
+In [6]: df['price']
+```
+
+```python
+Out[6]:
+Apple     120
+Orange    150
+Pear      230
+Peach     360
+Name: price, dtype: int64
+```
+
+---
+
+## Use Pandas
+
+### 列の選択（複数）
+
+```python
+In [7]: df[['price', 'color']]
+```
+
+```python
+Out[7]:
+        price   color
+Apple     120     red
+Orange    150  orange
+Pear      230   green
+Peach     360    pink
+```
+
+---
+
+## Use Pandas
+
+### head, tail
+
+```python
+In [8]: df.head(2)
+```
+
+```python
+Out[8]:
+          name  order  price   color  total
+Apple    apple      3    120     red    360
+Orange  orange      8    150  orange   1200
+```
+
+---
+
+## Use Pandas
+
+### インデックス指定
+
+```python
+In [9]: df.loc[['Apple', 'Pear']]
+```
+
+```python
+In [9]: df[1:3]
+
+Out[9]:
+          name  order  price   color  total
+Orange  orange      8    150  orange   1200
+Pear      pear      4    230   green    920
+```
+
+---
+
+## Use Pandas
+
+### 条件による指定
+
+```python
+In [10]: df[df.price > 200]
+```
+
+```python
+Out[10]:
+        name  order  price  color  total
+Pear    pear      4    230  green    920
+Peach  peach      5    360   pink   1800
+```
+
+---
+
+## Use Pandas
+
+- 対話的、探索的にデータを操作できる
+
+---
+
+## 身近なデータを可視化
+
+---
+
+## 身近なデータを可視化
+
+### Pandas でデータ操作だけじゃつまらない
+
+---
+
+## 身近なデータを可視化
+
+### そうだ可視化しよう
+
+---
+
+## 身近なデータを可視化
+
+### グラフを書いてみよう
+
+
+---
+
+## 身近なデータを可視化
+
+### 今年は雪が多い
+
+---
+
+<img src="./IMG_3786.JPG" style="width: 30%" />
+<img src="./IMG_3787.JPG" style="width: 30%" />
+
+
+---
+
+## 身近なデータを可視化
+
+### 昭和38年、昭和56年と比較する
+
+---
+
+## 身近なデータを可視化
+
+### 気象庁の観測データをダウンロード
+
+http://www.data.jma.go.jp/gmd/risk/obsdl/index.php
+
+---
+
+## 身近なデータを可視化
+
+### 最深積雪をグラフにする
+
+---
+
+## 身近なデータを可視化
+
+### 年別の最深積雪
+
+<img src="monthly_snow.png" style="background-color: white" />
+
+---
+
+## 身近なデータを可視化
+
+### 昭和38年 (1963年)
+
+<img src="1963_snow.png" style="background-color: white" />
+
+---
+
+## 身近なデータを可視化
+
+### 昭和56年 (1981年)
+
+<img src="1981_snow.png" style="background-color: white" />
+
+---
+
+## 身近なデータを可視化
+
+### 平成30年 (2018年)
+
+<img src="2018_snow.png" style="background-color: white" />
+
+---
+
+## まとめ
+
+Jupyter Notebook を使うことは
+
+データサイエンスのはじめの一歩
 
 ---
 
