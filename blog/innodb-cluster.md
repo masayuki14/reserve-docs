@@ -13,6 +13,15 @@
 今まで知らなかったけど結構セミナーをやっているようなので今後はフォローしていきたい。
 主催者の[@yyamasaki1](https://atnd.org/users/129037?state=manage)さんがイベント管理をしている模様。
 
+## MySQL InnoDB Cluster
+
+- Mysql Group Replication
+- MySQL Router
+- Mysql Shell
+
+の3つのコンポーネントを組み合わせて作るMySQLの高可用性構成。
+それぞれは単体で利用できるコンポーネントで、これらを組み合わせることで自動フェイルオーバーを含む信頼性の高いDBインフラを構築できる。
+
 # 今回知ったキーワード
 
 ## Mysql Group Replication
