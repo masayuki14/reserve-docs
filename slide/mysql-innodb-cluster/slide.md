@@ -30,7 +30,9 @@ theme
 6. デモ
 
 
-# Replicationとは
+# Replication
+
+# Replication
 
 - データの複製を別サーバーにもたせる
 - MySQLの標準機能
@@ -49,17 +51,21 @@ theme
 
 ![](dispersion.png)
 
-参照処理の不可が高い場合にはスレーブを増やし
-負荷分散を行うことで参照性能を向上させる。
+スレーブを増やし負荷分散を行う
 
 
-# MySQL InnoDB Clusterとは?
+# MySQL InnoDB Cluster
+
+# MySQL InnoDB Cluster
 
 3つのコンポーネントを組み合わせて作るMySQLの高可用性構成。
 
-- MySQL GroupReplication
-- MySQL Router
-- MySQL Shell
+# MySQL InnoDB Cluster
+
+構成要素
+:   - MySQL Group Replication
+    - MySQL Router
+    - MySQL Shell
 
 
 # MySQL InnoDB Cluster
@@ -76,7 +82,10 @@ theme
 ![](MySQLInnoDBCluster.png)
 
 
-# MySQL GroupReplication
+# MySQL Group Replication
+
+# MySQL Group Replication
+
 
 - フェイルオーバーが自動化
 - 構成の拡張・縮小が容易
@@ -85,42 +94,97 @@ theme
 
 MySQL 5.7.17 以降で利用可能
 
-# MySQL GroupReplication
+# MySQL Group Replication
 
 全ノードがマスターで等価の関係のグループを構成
 MySQL側でのフェイルオーバー処理が不要
 
 ![](FailOver.png)
 
-# MySQL GroupReplication
+# MySQL Group Replication
 
 全ノードがマスターで等価の関係のグループを構成
 MySQL側でのフェイルオーバー処理が不要
 
 ![](FailOverX.png)
 
+# MySQL Group Replication
 
+シングルプライマリモード
 
-## 説明
+![](SInglePrimary.png)
 
-マスタとなっているサーバーに障害が発生した時、自動的に他のサーバーが次のマスタに昇格する。
-複数台のサーバーがグループを作って、お互いに通信しあいながらレプリケーションを行う。
-グループのメンバー管理と障害検知が自動化されている。
-シングルマスターで運用できるけど、マルチマスタでの構成も容易。
+- Primary: 更新できるマスタ
+- Secondary: 参照およびスタンバイ
+
+# MySQL Group Replication
+
+シングルプライマリモード
+
+![](SInglePrimary-promotion.png)
+
+- プライマリーに障害があれば別インスタンスが昇格
+
+# MySQL Group Replication
+
+シングルプライマリモード
+
+![](SInglePrimary-comback.png)
+
+- セカンダリーとして復帰
 
 # MySQL Router
 
-複数のMySQLサーバーへの接続を振り分けてくれる。
-そのまんまルーター。
-R/Oの複数台のサーバーを登録するとラウンドロビンで接続を振り分けてくれる。
-負荷分散としても利用できる。
-MySQL Group Replication と合わせて使う時、マスタサーバーが変わった時でも自動で追随してくれる。
-アプリケーションはマスタがどのサーバーかを意識する必要がなくなる。
+
+# MySQL Router
+
+- MySQL Connectionの振り分け
+- ラウンドロビン
+- 自動検出
+- メタデータ・キャッシュ
+
+# MySQL Router
+
+![](MySQL Router.png)
+
+- 設定、メタデータに基づき接続
+
+# MySQL Router
+
+![](MySQL Router-FailOver.png)
+
+- メタデータを更新し参照先を変える
 
 
 # MySQL Shell
 
-MySQLサーバー管理用のCLIツール。
+
+# MySQL Shell
+
+MySQL運用管理のためのCLIツール
+
+- JavaScript, Python, and SQL
+- 開発と管理用に完全なAPIを提供
+- バッチ処理の実行
+
+
+# MySQL Shell
+
+MySQL InnoDB Cluster 管理用API
+
+- クラスター作成
+- MySQLインスタンスの構築
+- クラスターの状況を確認可能
+- MySQLインスタンスの開始・停止
+- MySQLインスタンスの検証 ...
+
+
+# Demo
+
+# Demo
+
+## 説明
+
 Javascript、Python、SQLで管理コードが書ける。
 MySQL Group Replicationで使う場合のサーバー設定を自動でうやってくれたり(my.confの設定など）MySQL Routerの設定、管理もできる。
 バッチ処理によるサーバー管理処理も自動化できちゃう。
