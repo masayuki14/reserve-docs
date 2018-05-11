@@ -1,0 +1,166 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = "ubuntu/xenial64"
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  # config.vm.synced_folder "../data", "/vagrant_data"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  # config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = "1024"
+  # end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
+  # such as FTP and Heroku are also available. See the documentation at
+  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
+  # config.push.define "atlas" do |push|
+  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
+  # end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  tmux_conf = <<-CONF
+set-window-option -g mode-keys vi
+set-window-option -g automatic-rename off
+set-option -g mouse on
+set-option -g base-index 1
+set-option -g default-terminal xterm-256color
+
+set-option -g prefix C-t
+
+set-option -g history-limit 50000
+set-option -g buffer-limit 20
+
+#set -g status-bg blue
+
+unbind l
+unbind ^C
+
+bind r source-file ~/.tmux.conf\; display-message "Reload Config!!"
+
+bind C-t next-window
+bind C-c new-window
+bind C-n next-window
+bind C-p previous-window
+
+unbind ^W
+bind ^W list-windows
+unbind w
+bind w list-windows
+
+bind i display-panes
+bind | split-window -h
+bind S split-window -v
+bind C-s split-window -v
+
+unbind A
+bind A command-prompt "rename-window %%"
+
+bind -r C-h resize-pane -L 6
+bind -r C-l resize-pane -R 6
+bind -r C-j resize-pane -D 6
+bind -r C-k resize-pane -U 6
+bind -r s swap-pane -U
+
+bind k kill-pane
+bind K kill-window
+bind i display-panes
+
+unbind ^"["
+bind -r ^"[" copy-mode
+unbind ^]
+bind -r ^] paste-buffer
+
+unbind Tab
+bind Tab select-pane -t :.-
+unbind BTab
+  CONF
+
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y libaio1
+
+    apt-get install -y fish vim tmux
+
+  SHELL
+
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    echo '''
+    #{tmux_conf}
+    ''' > ~/.tmux.conf
+  SHELL
+
+  config.vm.provision "shell", privileged: true, inline: <<-SHELL
+    getent group mysql || groupadd mysql
+    getent group mysql || useradd -r -g mysql -s /bin/false mysql
+  SHELL
+
+  config.vm.provision "shell", privileged: true, inline: <<-SHELL
+    cd /usr/local
+    test -f mysql-5.7.21-linux-glibc2.12-x86_64.tar.gz || curl -LO 'https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.21-linux-glibc2.12-x86_64.tar.gz'
+    test -f mysql-router-2.1.6-linux-glibc2.12-x86-64bit.tar.gz || curl -LO 'https://dev.mysql.com/get/Downloads/MySQL-Router/mysql-router-2.1.6-linux-glibc2.12-x86-64bit.tar.gz'
+    test -f mysql-shell-1.0.11-linux-glibc2.12-x86-64bit.tar.gz || curl -LO 'https://dev.mysql.com/get/Downloads/MySQL-Shell/mysql-shell-1.0.11-linux-glibc2.12-x86-64bit.tar.gz'
+
+    test -d mysql-5.7.21-linux-glibc2.12-x86_64          || tar zxvf mysql-5.7.21-linux-glibc2.12-x86_64.tar.gz
+    test -d mysql-router-2.1.6-linux-glibc2.12-x86-64bit || tar zxvf mysql-router-2.1.6-linux-glibc2.12-x86-64bit.tar.gz
+    test -d mysql-shell-1.0.11-linux-glibc2.12-x86-64bit || tar zxvf mysql-shell-1.0.11-linux-glibc2.12-x86-64bit.tar.gz
+
+    test -L mysql       || ln -s ./mysql-5.7.21-linux-glibc2.12-x86_64 ./mysql
+    test -L mysqlrouter || ln -s ./mysql-router-2.1.6-linux-glibc2.12-x86-64bit ./mysqlrouter
+    test -L mysqlshell  || ln -s ./mysql-shell-1.0.11-linux-glibc2.12-x86-64bit ./mysqlshell
+  SHELL
+
+  config.vm.provision "shell", privileged: true, inline: <<-SHELL
+    cat /etc/profile | grep -q 'usr/local/mysql' || echo '''
+      PATH=$PATH:/usr/local/mysql/bin
+      PATH=$PATH:/usr/local/mysqlrouter/bin
+      PATH=$PATH:/usr/local/mysqlshell/bin
+    ''' >> /etc/profile
+
+  SHELL
+end
