@@ -65,3 +65,11 @@ dba.startSandboxInstance(3310)
 dba.startSandboxInstance(3320)
 dba.startSandboxInstance(3330)
 
+
+# sql
+create database tech_db;
+create table member (
+  `id` int auto_increment,
+  `name` varchar(64) default null,
+  `score` float default 0
+);
