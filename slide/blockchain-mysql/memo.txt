@@ -1,0 +1,44 @@
+CREATE TABLE `block3` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `transaction` json DEFAULT NULL,
+  `nonce` int(11) DEFAULT NULL,
+  `prev_hash` varchar(32) DEFAULT NULL,
+  `hash` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+
+[
+  {"name": "miyake", "date": "2018-04-01", "report": "今日は良い天気でした。"},
+  {"name": "kataoka", "date": "2018-04-01", "report": "チョコレートが美味しかった。"},
+  {"name": "tamamura", "date": "2018-04-01", "report": "電車が遅れて最悪だった。"}
+]
+
+with recursive
+blockchain (id, hash, path)  as (
+  select id, hash, cast(id as char(100))
+  from block2
+  where id = 1
+union all
+  select b.id, b.hash, concat(b.id, '->', bc.path)
+  from blockchain bc join block2 b
+  on bc.hash = b.prev_hash
+)
+
+select * from blockchain;
+
+
+
+
+
+select id, trans.*
+from block, JSON_TABLE(
+  `transaction`,
+  '$[*]'
+  columns (
+    name varchar(32) path '$.name',
+    `date` date path '$.date',
+    report varchar(128) path '$.report'
+  )
+) trans;
+
