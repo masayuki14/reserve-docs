@@ -1,5 +1,6 @@
 sudo -i mysqlsh
 
+# Sandbox作成
 dba.deploySandboxInstance(3310)
 dba.deploySandboxInstance(3320)
 dba.deploySandboxInstance(3330)
@@ -71,5 +72,6 @@ create database tech_db;
 create table member (
   `id` int auto_increment,
   `name` varchar(64) default null,
-  `score` float default 0
-);
+  `score` float default 0,
+  primary key (`id`)
+) engine = innodb;
