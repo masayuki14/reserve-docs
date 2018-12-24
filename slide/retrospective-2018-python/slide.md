@@ -110,17 +110,17 @@ background-image-relative-margin-right
 
 2017年10月とあるイベントで出会った
 
-- @hogawa098
-- @ekuni1192
-- @masayuki14
+- @hogawa098 (まざ)
+- @ekuni1192 (えくに)
+- @masayuki14 (Masa)
 
-によりノリで発足した京都のPython勉強会
+により発足した京都のPython勉強会
 
 # はんなりpython2018ふりかえり
 
 そこに
 
-- @jdgthjdg
+- @jdgthjdg (くない)
 
 がJOIN
 
@@ -172,6 +172,9 @@ background-image-relative-margin-right
 | 10 |   3|
 | 12 |   2|
 
+# リピート率
+
+# 37.8%
 
 # メンバー数 171名
 
@@ -181,8 +184,26 @@ background-image-relative-margin-right
 - リピート率
     - 37.8% {::note} ( 37 / 98 ) {:/note}
 
+# 勉強会の変遷
 
 # 勉強会の変遷
+
+- \#1 〜\#6
+    - 発表中心
+    - 資料は結構集まった
+- \#7 〜
+    - ハンズオンと発表を交互に
+    - 準備がわりと大変
+
+# 公開資料数
+
+# 29!!
+
+# 勉強会の変遷
+
+{::tag name="x-large"} 皆さんの力で {:/tag}
+{::tag name="x-large"} 知見が増えてきてる！！ {:/tag}
+
 
 # 勉強会の変遷
 
@@ -220,7 +241,7 @@ background-image-relative-margin-right
 # 運営のこころがまえ
 
 - 主催者は2人以上がいい
-    - 少なくとも2人で開催できる
+    - 誰も来なくても2人で開催できる
     - 手間の分散
     - 仲間がいるだけで安心感
 
@@ -257,6 +278,7 @@ background-image-relative-margin-right
     - アイスブレイク
     - 声を出す機会
     - 詰め込みすぎない
+    - 余白を作る
 
 # 勉強会のこころがまえ
 
@@ -282,8 +304,16 @@ background-image-relative-margin-right
 - 継続する
     - 2周年を迎える
 
+- 多様なセッション
+    - 初心者向けの発表
+    - ハンズオン
+    - 専門的な発表
+
+# 来年やりたいこと
+
 - 会場変えたい
     - 企業とのコラボ
+    - 見やすいプロジェクタ環境
 
 - 他の勉強会と共催
     - 多様な人との交流
