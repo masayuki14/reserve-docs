@@ -133,6 +133,10 @@ background-image-relative-margin-right
 
 # なんとか1年続けられました
 
+# みんな
+
+# ありがとう！！
+
 # はんなりpython2018ふりかえり
 
 {::tag name="x-large"} 今日はそんな {:/tag}
@@ -261,6 +265,7 @@ background-image-relative-margin-right
 :   - はんなり交流しましょう
     - オープンでフラットなコミュニティ
     - 初心者からエキスパートまで参加できる
+    - 交流のハブになる
 
 # 運営のこころがまえ
 
