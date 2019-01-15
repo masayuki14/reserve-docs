@@ -243,12 +243,119 @@ Window関数の3つの機能
 
 # 実践Window関数
 
-{::tag name="x-large"} 実践Window関数  {:/tag}
+{::tag name="x-large"} 実践Window関数 {:/tag}
 
 # 実践Window関数
 
-PARTITION BY
+{::tag name="x-large"} まずはPARTITION BY を {:/tag}
+{::tag name="x-large"} おさえよう {:/tag}
 
+# 実践Window関数
+
+```
++-----------+------+------+
+| member    | team | age  |
++-----------+------+------+
+| 富士崎    | A    |   39 |
+| 西塚      | A    |   45 |
+| 西崎      | A    |   24 |
+| 逸見      | B    |   26 |
+| 岡村      | B    |   18 |
+| 東野      | C    |   50 |
+| 各務原    | D    |   27 |
+| 犬山      | D    |   28 |
+| 鳥羽      | D    |   33 |
+| 桃山      | D    |   28 |
++-----------+------+------+
+```
+
+# 実践Window関数
+
+{::tag name="xx-small"} team ごとに分割して行番号を取得する {:/tag}
+
+```
+SELECT
+    member,
+    team,
+    age,
+    ROW_NUMBER() OVER (
+        PARTITION BY team
+        ORDER BY age) AS num
+FROM teams;
+```
+{: lang="sql" }
+
+
+# 実践Window関数
+
+{::tag name="xx-small"} team ごとに分割して行番号を取得する {:/tag}
+
+```
++-----------+------+------+-----+
+| member    | team | age  | num |
++-----------+------+------+-----+
+| 西崎      | A    |   24 |   1 |
+| 富士崎    | A    |   39 |   2 |
+| 西塚      | A    |   45 |   3 |
+| 岡村      | B    |   18 |   1 |
+| 逸見      | B    |   26 |   2 |
+| 東野      | C    |   50 |   1 |
+| 各務原    | D    |   27 |   1 |
+| 桃山      | D    |   28 |   2 |
+| 犬山      | D    |   28 |   3 |
+| 鳥羽      | D    |   33 |   4 |
++-----------+------+------+-----+
+```
+
+# 実践Window関数
+
+{::tag name="xx-small"} team ごとに分割して順位を取得する {:/tag}
+
+```
+SELECT
+    member,
+    team,
+    age,
+    RANK() OVER (
+        PARTITION BY team
+        ORDER BY age) AS rk
+FROM teams;
+```
+{: lang="sql" }
+
+
+# 実践Window関数
+
+{::tag name="xx-small"} team ごとに分割して順位を取得する {:/tag}
+
+```
++-----------+------+------+----+
+| member    | team | age  | rk |
++-----------+------+------+----+
+| 西崎      | A    |   24 |  1 |
+| 富士崎    | A    |   39 |  2 |
+| 西塚      | A    |   45 |  3 |
+| 岡村      | B    |   18 |  1 |
+| 逸見      | B    |   26 |  2 |
+| 東野      | C    |   50 |  1 |
+| 各務原    | D    |   27 |  1 |
+| 犬山      | D    |   28 |  2 |
+| 桃山      | D    |   28 |  2 |
+| 鳥羽      | D    |   33 |  4 |
++-----------+------+------+----+
+```
+
+# 実践Window関数
+
+![](partition.png){: relative_width='100' }
+
+# 実践Window関数
+
+
+# 実践Window関数
+
+
+# 実践Window関数
 
 # 実践Window関数
 
