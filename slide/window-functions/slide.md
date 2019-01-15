@@ -1,7 +1,7 @@
 # 君はWindow関数を知っているか！？
 
 subtitle
-:   第9回 関西DB勉強会
+:   テクテクテック#7 DB勉強会
 
 date
 :   2019/01/16
@@ -15,6 +15,7 @@ theme
 allotted-time
 :   20m
 
+set_background("red")
 
 # 目次
 
@@ -124,6 +125,38 @@ background-image-relative-margin-right
 
 # Window関数とは
 
+{::tag name="x-large"} Window関数とは {:/tag}
+
+# Window関数とは
+
+{::tag name="x-large"} Window + 関数 ??  {:/tag}
+
+# Window関数とは
+
+{::tag name="large"} Window の意味は？ {:/tag}
+:   - {::tag name="x-large"}×  窓 {:/tag}
+    - {::tag name="x-large"}○  範囲 幅 {:/tag}
+
+# Window関数とは
+
+{::tag name="large"} 範囲を指定して {:/tag}
+:   - {::tag name="large"} 違う行を自分の行にもってくる {:/tag}
+    - {::tag name="large"} 集約結果を自分の行にもってくる {:/tag}
+
+# Window関数とは
+
+{::tag name="x-large"} どうやって範囲を指定する？ {:/tag}
+
+# Window関数とは
+
+{::tag name="x-large"} Window関数を使って {:/tag}
+
+# Window関数とは
+
+{::tag name="x-large"} SQLを見てみよう {:/tag}
+
+# Window関数とは
+
 Window関数を使ったSQLの例
 
 ```
@@ -170,11 +203,52 @@ WINDOW w AS (PARTITION BY customer_id
 
 # Window関数とは
 
+Window関数の書き方
+
+```
+SELECT
+    集約関数() OVER (範囲指定)
+FROM table
+```
+{: lang="sql" }
+
+`OVER()` があればWindow関数
+
 # Window関数とは
 
-# 実践Window関数
+Window関数の書き方
+
+集約関数
+:   - ROW_NUMBER(), FIRST_VALUE()
+    - MAX(), MIN(), AVG()
+
+範囲指定
+:   - PARTITION BY, ORDER BY
+    - フレーム句
+
+# Window関数とは
+
+![](window_func.png){: relative_width='100' }
+
+{:.center}
+> {::tag name="xx-small"} 1枚でわかるWindow関数 - https://codezine.jp/article/detail/11115 {:/tag}
+
+# Window関数とは
+
+Window関数の3つの機能
+
+- PARTITION BY 句によるレコード集合の分割
+- ORDER BY 句によるレコードの順序づけ
+- フレーム句によるカレントレコードを中心としたサブセット定義
 
 # 実践Window関数
+
+{::tag name="x-large"} 実践Window関数  {:/tag}
+
+# 実践Window関数
+
+PARTITION BY
+
 
 # 実践Window関数
 
