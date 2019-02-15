@@ -49,7 +49,6 @@ background-image-opacity
 # 自己紹介
 
 - プロ主夫
-    - 妻1人 {::note} (フルタイム) {:/note} 幼児2人
     - フリーランス {::note} (Web系パートタイム) {:/note}
     - データベーススペシャリスト
 
@@ -229,7 +228,7 @@ background-image-relative-margin-right
 
 # 簡易版
 
-![](../assets/flow_chart.png){: relative_height='100' }
+![](../assets/flow_chart_easy.jpeg){: relative_height='95' }
 
 
 # フロー状態になるには
@@ -440,14 +439,6 @@ background-image-align
 background-image-relative-margin-top
 :   15
 
-
-# (2) 課題を設定
-
-やりたいこと
-:   - Dash
-    - 機械学習
-    - Kubernetes
-
 # (2) 課題を設定
 
 やれること
@@ -456,4 +447,73 @@ background-image-relative-margin-top
     - Web開発
     - Scrapy
 
+
 # (2) 課題を設定
+
+やりたいこと
+:   - Dash
+    - 機械学習
+    - Kubernetes
+
+
+# (2) 課題を設定
+
+
+やれること＋やりたいこと
+:   - Dashの環境をDockerで作る
+    - Scrapyでデータ集めてMySQLに
+    - DashのデータをMySQLから取る
+    - Dashでとりあえずなんか出す
+    - 複数コンテナで動く環境作る(Dash、MySQL、nginx)
+
+
+# (2) 課題を設定
+
+やれることの上に
+やりたいこと
+(まだうまくできないこと)
+をつみあげて課題を設定
+
+# (3) 課題をこなす
+
+3つ目までクリアできた
+:   - **Dashの環境をDockerで作る**
+    - **Scrapyでデータ集めてMySQLに**
+    - **DashのデータをMySQLから取る**
+    - Dashでとりあえずなんか出す
+    - 複数コンテナで動く環境作る(Dash、MySQL、nginx)
+
+# (3) 課題をこなす
+
+次をこなすモチベーションも
+
+積み上がっていく
+
+# (3) 課題をこなす
+
+- やれることが増える
+- スキルレベルが上がる
+- 挑戦レベルを上げられる
+
+
+# .
+
+
+{:.center}
+{::tag name="x-large"} 正のサイクル {:/tag}
+
+
+
+# まとめ
+
+- なんかおもしそうを大事に
+- 目的をつくる
+- やれることをベースに
+
+
+
+# .
+
+
+{:.center}
+{::tag name="x-large"} ありがとうございました {:/tag}
