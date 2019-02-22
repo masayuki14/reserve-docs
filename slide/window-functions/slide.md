@@ -13,7 +13,7 @@ theme
 :   clear-blue
 
 allotted-time
-:   20m
+:   10m
 
 set_background("red")
 
@@ -99,10 +99,10 @@ background-image-relative-margin-right
 
 勉強会 [テクテクテック](https://goo.gl/hXXafu)
 
-- 2019/03 予定
-    - 1周年記念パーティ
+- 2019/04/10
+    - サーバ監視や負荷テストどうやってるの？
 - もくもく会はじめました
-    - 平日 19:00〜
+    - 2/28(木) 19:00〜
     - いつでも来てね!!
 
 ## プロパティ
@@ -122,6 +122,25 @@ background-image-relative-margin-right
 {::comment}
 {:/comment}
 
+
+# Window関数とは
+
+{:.center}
+{::tag name="x-large"} Window関数とは {:/tag}
+
+# Window関数とは
+
+{::tag name="large"} 標準SQL規格 {:/tag}
+{::tag name="large"} SQL:2003にて追加された {:/tag}
+{::tag name="large"} 標準機能 {:/tag}
+
+# Window関数とは
+
+{::tag name="large"} MySQL8.0でサポート {:/tag}
+{::tag name="large"} 主要RDBMSで利用可能 {:/tag}
+
+- Oracle, SQL Server
+- PostgreSQL, MySQL
 
 # Window関数とは
 
