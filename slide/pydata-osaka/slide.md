@@ -39,11 +39,14 @@ background-image-relative-width
 background-image-align
 :   right
 
+background-image-vertical-align
+:   top
+
 background-image-relative-margin-right
 :   3
 
 background-image-relative-margin-top
-:   3
+:   30
 
 background-image-opacity
 :   0.5
@@ -122,6 +125,16 @@ background-image-relative-margin-right
 
 # Dockerを使った可視化環境の作り方
 
+1. Docker環境までの道のり
+1. Docker環境の紹介
+
+# Dockerを使った可視化環境の作り方
+
+1. *Docker環境までの道のり*
+1. Docker環境の紹介
+
+# Docker環境までの道のり
+
 - 可視化アプリをつくろう!!
 - 困ったことがたくさん
 - できることから少しずつ
@@ -139,6 +152,16 @@ background-image-relative-margin-right
 # 遊園地の待ち時間を可視化しよう！
 
 # USJ！TDL！TDS！
+
+## property
+
+
+background-image
+:   ../assets/amusement-park-blue-sky-carnival-1376407.jpg
+
+background-image-relative-width
+:   100
+
 
 # 可視化アプリを作ろう！
 
@@ -245,13 +268,13 @@ background-image-relative-width
 環境どうしよう
 :   - **Docker使おう!!**
     - 使い捨てでいいや
-    - とりあえず動くもの
     - バージョンとか気にしなくていい
+    - PC汚れない
 
 # できることから少しずつ
 
 Python慣れてない
-:   - **JupyterNotebook!!*
+:   - *JupyterNotebook!!*
     - 書いて動かすを繰り返す
     - 試行錯誤を保存
 
@@ -279,6 +302,151 @@ PC2台
 - できること重視
     - Pandas覚えたいわけじゃない
 - 射撃しつつ前進
-    - Joel on Software 読んで
+    - Joel on Software 読んでくれ
+
+# Joel on Software
+
+![](../assets/qrcode_201903212233.png)
+
+# こつこつ進めた結果
+
+# Docker環境のできあがり
+
+## property
+
+background-image
+:   ../assets/business-commerce-container-379964.jpg
+
+background-image-relative-width
+:   100
 
 
+# Dockerを使った可視化環境の作り方
+
+1. Docker環境までの道のり
+1. *Docker環境の紹介*
+
+
+# Dockerとは
+
+![](../assets/VM_Container-768x437.jpg){: relative_width='90' }
+
+{:.center}
+{::note}引用元: https://knowledge.sakura.ad.jp/13265/{:/note}
+
+
+# Dockerとは
+
+- 仮想環境とかよくわからん
+
+# Dockerとは
+
+- コンピュータの中に箱を用意
+- 必要なものを詰め込む
+- いい感じにつかう
+- はんなりPythonに来て
+    - たまに使うから
+
+# できあがったDocker環境
+
+```
+
++--------+       +-------+        +---------+
+|        |       |       |        |         |
+|  Dash  | ----- | MySQL | ------ | Jupyter |
+|        |       |       |        |         |
++--------+       +-------+        +---------+
+                     |
+                     |            +---------+
+                     |            |         |
+                     +----------- | adminer |
+                                  |         |
+                                  +---------+
+```
+
+# Dockerfile
+
+```
+FROM python:3.7
+
+# for dash
+RUN pip install dash==0.36.0
+RUN pip install dash-html-components==0.13.5
+RUN pip install dash-core-components==0.43.0
+RUN pip install dash-table==3.1.11
+RUN pip install dash-daq==0.1.0
+
+RUN pip install pandas
+RUN pip install mysql-connector-python==8.0.15
+
+RUN export LANG=ja_JP.UTF-8
+```
+{: lang="dockerfile" }
+
+
+# docker-compose.yml
+
+```
+version: '3.7'
+services:
+  dash:
+    build:
+      context: ./dockerfiles
+      dockerfile: Dockerfile.dash
+    command: ["python", "/work/dash/app.py"]
+    working_dir: /work
+    depends_on:
+      - db
+    volumes:
+      - ./:/work
+      - ./logwh:/log
+    ports:
+      - 8050:8050
+```
+{: lang="yaml" }
+
+
+
+# docker-compose.yml
+
+```
+  db:
+    image: mysql:8.0
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --secure-file-priv=/log
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQ_DATABASE: disney
+    ports:
+      - 3306:3306
+    working_dir: /work
+    volumes:
+      - ./db/mysql/datadir:/var/lib/mysql
+      - ./db/mysql/log:/var/log/mysql
+
+```
+{: lang="yaml" }
+
+
+# Infra as a Code
+
+- Dockerfile
+- docker-compose.yml
+- etc...
+
+環境を再現しやすくなる
+
+# Demo
+
+https://github.com/...
+
+
+# まとめ
+
+- Dockerを使って問題解決！
+- 可視化関係なかった！
+- はんなりPython来てね
+
+# ありがとうございました
