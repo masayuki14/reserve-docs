@@ -1,0 +1,36 @@
+---
+
+## Jupyter Notebook とは
+
+### Project Jupyter
+
+インタラクティブというのは対話型という意味
+IPythonから生まれたプロジェクト
+Pythonだけでなく Ruby PHP C# Golang など様々な言語で使える
+
+---
+
+## Jupyter Notebook とは
+
+データサイエンスと科学的コンピューティングを サポートするように進化した
+数値シミュレーション、統計モデリング、データの可視化 機械学習などが使用できる
+
+---
+
+## Use Jupyter Notebook
+
+### by Docker
+
+Webアプリケーションなのでサーバーが必要
+コマンド実行ですぐ使える
+とはいえインストールが必要
+Dockerを使おう
+Dockerは再利用しやすい
+
+---
+
+## Jupyter Notebook を使おう
+
+### Dockerを使う
+
+jupyterはminicondaにはいってる
