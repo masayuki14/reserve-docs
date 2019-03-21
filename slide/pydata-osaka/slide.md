@@ -149,9 +149,24 @@ background-image-relative-margin-right
 
 # Python 難しい
 
-# Python 難しいというか
+## property
+
+background-image
+:   ../assets/alone-benches-blue-jeans-1134204.jpg
+
+background-image-relative-width
+:   100
+
 
 # 困ること多すぎ
+
+## property
+
+background-image
+:   ../assets/alone-benches-blue-jeans-1134204.jpg
+
+background-image-relative-width
+:   100
 
 
 # ところでぼくの基本スペック
@@ -195,9 +210,35 @@ background-image-relative-margin-right
 
 # なんとかならんか
 
+## property
+
+background-image
+:   ../assets/action-plan-brainstorming-complex-212286.jpg
+
+background-image-relative-width
+:   100
+
+
 # 近道はない
 
+## property
+
+background-image
+:   ../assets/argument-bench-breakup-984949.jpg
+
+background-image-relative-width
+:   100
+
 # こつこつやるしかない
+
+## property
+
+background-image
+:   ../assets/adventure-backpacker-climb-1365425.jpg
+
+background-image-relative-width
+:   100
+
 
 # できることから少しずつ
 
