@@ -418,7 +418,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQ_DATABASE: disney
+      MYSQ_DATABASE: pydata
     ports:
       - 3306:3306
     working_dir: /work
