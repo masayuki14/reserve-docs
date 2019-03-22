@@ -15,14 +15,23 @@ theme
 allotted-time
 :   20m
 
-# 自己紹介
+# Masaといいます
 
-- もりさきまさゆき(Masa)
+- もりさきまさゆき
 
 - @masayuki14
 
-![](../assets/services.png){: relative_width='60' relative_margin_top='25'}
+- プロ主夫
+    - フリーランス {::note} (パートタイム) {:/note}
+    - ソフトウェアエンジニア
+    - データベーススペシャリスト
 
+# このアイコン
+
+\\n
+\\n
+
+![](../assets/services.png){: relative_width='40' relative_margin_top='27'}
 
 {:.center}
 **Follow me !!**
@@ -34,28 +43,18 @@ background-image
 :   ../assets/icon.jpg
 
 background-image-relative-width
-:   30
-
-background-image-align
-:   right
+:   40
 
 background-image-vertical-align
 :   top
 
-background-image-relative-margin-right
-:   3
-
 background-image-relative-margin-top
-:   30
+:   20
 
 background-image-opacity
 :   0.5
 
 # 自己紹介
-
-- プロ主夫
-    - フリーランス {::note} (Web系パートタイム) {:/note}
-    - データベーススペシャリスト
 
 - コミュニティ
     - はんなりPython {::note} (第3金曜開催@京都) {:/note}
@@ -337,9 +336,12 @@ background-image-relative-width
 
 # Dockerとは
 
+- こんな図でわかるわけない
 - 仮想環境とかよくわからん
+- つよい人の理論
+- Windowsつらい
 
-# Dockerとは
+# Dockerとは (雑な解説)
 
 - コンピュータの中に箱を用意
 - 必要なものを詰め込む
