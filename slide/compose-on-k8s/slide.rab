@@ -1,0 +1,56 @@
+= Compose on Kubernetes をGKEで動かせなかった話
+
+:subtitle
+    Cloud Native Kansai #03
+
+:date
+    2019/06/07
+
+:author
+    @masayuki14
+
+:theme
+    clear-blue
+
+:allotted-time
+    10m
+
+= Masaといいます
+
+  * もりさきまさゆき
+  * @masayuki14
+  * プロ主夫
+    * フリーランス (('note:(パートタイム) '))
+    * Webエンジニア
+    * データベーススペシャリスト
+
+= このアイコン
+
+  # image
+  # src = ../assets/services.png
+  # relative_width = 40
+  # relative_margin_top = 27
+
+(('tag:center'))
+((*Follow me !!*))
+
+== property
+
+:background-image
+    ../assets/icon.jpg
+
+:background-image-relative-width
+    40
+
+:background-image-vertical-align
+    top
+
+:background-image-relative-margin-top
+    20
+
+:background-image-opacity
+    0.5
+
+
+
+
