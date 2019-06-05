@@ -154,6 +154,17 @@
 
   Offical Document
 
+= Run
+
+  # rouge bash
+  $ kubectl config use-context gke_beta-4...
+  $ docker stack deploy \
+    -c docker-compose.yml \
+    --orchestrator=kubernetes \
+    kubesample
+
+  failed to find a Stack API version
+
 = 結果
 
 (('tag:center'))
@@ -161,7 +172,8 @@
 
 = Issue 作成
 
-Contribute
+(('tag:center'))
+(('tag:large:Contribute'))
 \\n
 
   # image
