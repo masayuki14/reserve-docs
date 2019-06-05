@@ -1,4 +1,4 @@
-= Compose on Kubernetes をGKEで動かせなかった話
+= Compose on Kubernetes をGKEで動かそう
 
 :subtitle
     Cloud Native Kansai #03
@@ -53,4 +53,295 @@
 
 
 
+= 自己紹介
 
+  * コミュニティ
+    * はんなりPython (('note:(第3金曜開催@京都)'))
+    * OSS Gate (('note:(京都, 大阪, 東京)'))
+  * スプーキーズアンバサダー
+
+= スプーキーズ@京都
+
+  * ボードゲーム制作
+  * ソーシャルゲーム開発
+  * Web系システム
+
+(('tag:center'))
+((*ゲームクリエイター積極採用中*))
+
+== プロパティ
+
+:background-image
+    ../assets/spookies_logo.png
+
+:background-image-relative-width
+    30
+
+:background-image-align
+    right
+
+:background-image-relative-margin-right
+    3
+
+= スプーキーズ@京都
+
+((*モクモクモック*))(もくもく会)
+
+((*テクテクテック*))(勉強会)
+
+  * 2019/07 企画中
+    * ISUCONワークショップ - 速度改善
+    * CTF - セキュリティ
+
+== プロパティ
+
+:background-image
+    ../assets/spookies_logo.png
+
+:background-image-relative-width
+    30
+
+:background-image-align
+    right
+
+:background-image-relative-margin-right
+    3
+
+
+= 今日の話
+
+(('tag:center'))
+(('tag:x-large:Compose on KubernetesをGKEで動かそう'))
+
+
+= Compose on k8s
+
+
+  # blockquote
+  # title = https://github.com/docker/compose-on-kubernetes
+  Compose on Kubernetes allows you to deploy Docker Compose files onto a Kubernetes cluster.
+
+= Compose on k8s
+
+  * docker-compose.ymlをk8sクラスターにデプロイ
+  * 前回のLTで紹介
+
+= Docker Preferences
+
+  # image
+  # src = ../assets/docker-settings.png
+  # relative_width = 75
+  # relative_margin_top = 0
+
+= ローカルで実行
+
+  # rouge bash
+  $ docker stack deploy \
+    -c docker-compose.yml \
+    --orchestrator=kubernetes \
+    kubesample
+
+= Compose on k8s
+
+(('tag:center'))
+(('tag:x-large:Deploy on GKE'))
+
+= Install
+
+  # image
+  # src = ../assets/deploying-compose-on-kubernetes.png
+  # relative_width = 100
+
+  Offical Document
+
+= 結果
+
+(('tag:center'))
+(('tag:x-large:動かない!!\\n\\nおしまい!!'))
+
+= Issue 作成
+
+Contribute
+\\n
+
+  # image
+  # src = ../assets/compose-on-kubernetes-issue.png
+  # relative_width = 100
+
+
+= わかったこと
+
+  * 本を読もう
+  * レジストリ使おう
+  * Docker/CLI 最新版必要
+  * GCP $300 トライアル
+  * コントリビュートしよう
+  * 動かすことで理解が深まる
+
+= 本を読もう
+
+  # image
+  # src = ../assets/9784297100339.jpg
+  # relative_height = 100
+
+= 本を読もう
+
+  * docker, compose, swarm
+    * 順序よく学べる
+  * GCP まわりもわかる
+    * gcloud
+    * kubectl
+
+= 本を読もう
+
+  * Webの情報では不十分
+  * 入門書として良い
+  * 時間を買うと思えば安い
+
+= レジストリ使おう
+
+  * Docker Compose
+    * build できる
+  * Compose on k8s
+    * build できない
+
+= レジストリ使おう
+
+docker-compose.yml
+
+  # rouge yaml
+  services:
+    app:
+      build:
+        context: ./app
+        dockerfile: Dockerfile
+
+build できない
+
+= レジストリ使おう
+
+docker-compose.yml
+
+  # rouge yaml
+  services:
+    app:
+      image: localhost:5000/sample/app
+
+レジストリを指定
+
+= レジストリ使おう
+
+Dockerレジストリサービス
+
+  * Docker Hub
+  * Quay
+
+= レジストリ使おう
+
+コンテナでローカルレジストリ
+
+  # rouge bash
+  $ docker run \
+    -v $(pwd)/registry:/var/lib/registry \
+    -p 5000:5000 \
+    registry:latest
+
+= レジストリ使おう
+
+build & push
+
+  # rouge bash
+  $ ls
+  Dockerfile
+  $ docker build -t localhost:5000/sample/app .
+  $ docker push localhost:5000/sample/app
+
+= レジストリ使おう
+
+tag & push
+
+  # rouge bash
+  $ docker tag app localhost:5000/sample/app
+  $ docker push localhost:5000/sample/app
+
+= Docker/CLI 最新版必要
+
+  # blockquote
+  # title = https://github.com/docker/compose-on-kubernetes/blob/master/docs/install-on-gke.md
+  Important: You will need a custom build of Docker CLI to deploy stacks onto GKE. The build must include this PR which has been merged onto the master branch.
+
+= Docker/CLI 最新版必要
+
+  # rouge bash
+  $ docker version
+
+
+* stable
+  * 18.09.2
+* requirement
+  * 19.03 <=
+
+= Docker/CLI 最新版必要
+
+  # rouge bash
+  $ git clone git@github.com:docker/cli.git
+  $ cd cli
+  $ make -f docker.Makefile binary
+  $ make -f docker.Makefile cross
+  $ ./build/docker-darwin-amd64 version
+
+
+= Docker/CLI 最新版必要
+
+(('tag:center'))
+(('tag:large:((*19.03*)) is comming soon.'))
+
+= GCP $300 トライアル
+
+いまなら1年間$300まで使い放題
+
+
+= GCP $300 トライアル
+
+
+  # image
+  # src = ../assets/gcp-tryal.png
+  # relative_height= 100
+
+= コントリビュートしよう
+
+  * 困ったことはIssueにあげる
+    * 返事があるとは限らない
+  * バグレポート
+
+= コントリビュートしよう
+
+  * 解決したらPullRequest
+  * ドキュメントの改善
+    * ハードルが低い
+
+= 動かすことで理解が深まる
+
+  * GCP
+    * はじめての利用
+  * Kubernetes
+    * 仕組み
+    * Manifest
+    * Resources
+
+= 動かすことで理解が深まる
+
+  * commands
+    * kubectl
+    * docker
+    * gcloud
+
+= さいごに
+
+(('tag:center'))
+(('tag:x-large:((*To be continued!!*))'))
+
+= さいごに
+
+(('tag:center'))
+(('tag:x-large:ありがとう\\nございました'))
