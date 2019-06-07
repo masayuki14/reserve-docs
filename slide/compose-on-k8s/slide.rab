@@ -133,6 +133,26 @@
   # relative_width = 75
   # relative_margin_top = 0
 
+= docker-compose.yml
+
+  # rouge yaml
+  version: '3.3'
+  
+  services:
+  
+    db:
+      image: dockersamples/k8s-wordsmith-db
+  
+    words:
+      image: dockersamples/k8s-wordsmith-api
+      deploy:
+        replicas: 5
+  
+    web:
+      image: dockersamples/k8s-wordsmith-web
+      ports:
+       - "33000:80"
+
 = ローカルで実行
 
   # rouge bash
@@ -140,6 +160,27 @@
     -c docker-compose.yml \
     --orchestrator=kubernetes \
     kubesample
+
+= ローカルで実行
+
+  # rouge bash
+  $ docker stack deploy -c docker-compose.yml --orchestrator=kubernetes kubesample
+  Waiting for the stack to be stable and running...
+  words: Ready		[pod status: 2/5 ready, 3/5 pending, 0/5 failed]
+  web: Ready		[pod status: 1/1 ready, 0/1 pending, 0/1 failed]
+  db: Ready		[pod status: 1/1 ready, 0/1 pending, 0/1 failed]
+
+  Stack kubesample is stable and running
+
+  $ kubectl get pods
+  NAME                     READY     STATUS    RESTARTS   AGE
+  db-79b45689db-f49f6      1/1       Running   0          4m
+  web-6b56cf97b9-2rbwg     1/1       Running   0          4m
+  words-6d654698d5-49l8g   1/1       Running   0          4m
+  words-6d654698d5-b9pf7   1/1       Running   0          4m
+  words-6d654698d5-fmp9f   1/1       Running   0          4m
+  words-6d654698d5-xhvfn   1/1       Running   0          4m
+  words-6d654698d5-z6zsf   1/1       Running   0          4m
 
 = Compose on k8s
 
@@ -180,6 +221,11 @@
   # src = ../assets/compose-on-kubernetes-issue.png
   # relative_width = 100
 
+= 返信なし
+
+  * 同じ問題に困ってる人はいた
+  * どうしよう
+    (('note:(いまここ)'))
 
 = わかったこと
 
