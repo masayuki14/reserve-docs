@@ -46,7 +46,8 @@ GEM
     http-form_data (2.0.0)
     http_parser.rb (0.6.0)
     json (2.1.0)
-    kramdown (1.16.2)
+    kramdown (2.3.1)
+      rexml
     locale (2.1.2)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -91,6 +92,7 @@ GEM
       twitter_oauth
     rake (12.3.0)
     rdtool (0.6.38)
+    rexml (3.2.4)
     rouge (3.1.0)
     rsvg2 (3.2.1)
       cairo (>= 1.12.8)
