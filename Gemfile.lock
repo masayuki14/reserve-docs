@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     atk (3.2.1)
       glib2 (= 3.2.1)
     buftok (0.2.0)
@@ -68,7 +68,7 @@ GEM
     poppler (3.2.1)
       cairo-gobject (= 3.2.1)
       gio2 (= 3.2.1)
-    public_suffix (3.0.1)
+    public_suffix (5.0.0)
     rabbit (2.2.1)
       coderay (>= 1.0.0)
       faraday
